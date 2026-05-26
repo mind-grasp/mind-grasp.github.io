@@ -232,31 +232,110 @@
       letter-spacing: 0.2px;
     }
 
-    .abstract-card {
-      margin: 8px auto 0;
-      padding: 24px 28px;
+    .teaser-block {
+      scroll-margin-top: 42px;
+      margin: 0 auto 22px;
+      max-width: 1040px;
+    }
+
+    .teaser-img {
+      width: 100%;
+      display: block;
+      margin: 0 auto 10px;
+      border-radius: 18px;
+      background: #f7f7fb;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .teaser-motion-lines {
+      position: relative;
+      height: 30px;
+      margin: 0 auto 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      opacity: 0.92;
+    }
+
+    .teaser-motion-lines::before,
+    .teaser-motion-lines::after,
+    .moving-line {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: min(760px, 82%);
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(106, 53, 216, 0.16) 16%,
+        rgba(106, 53, 216, 0.76) 50%,
+        rgba(106, 53, 216, 0.16) 84%,
+        transparent 100%);
+      filter: drop-shadow(0 0 8px rgba(106, 53, 216, 0.20));
+      animation: lineFlow 3.6s ease-in-out infinite;
+    }
+
+    .teaser-motion-lines::before {
+      top: 7px;
+      transform: translateX(-50%);
+      animation-delay: -0.8s;
+    }
+
+    .moving-line {
+      top: 14px;
+      transform: translateX(-50%) scaleX(0.88);
+      opacity: 0.70;
+      animation-delay: -1.7s;
+    }
+
+    .teaser-motion-lines::after {
+      top: 21px;
+      transform: translateX(-50%) scaleX(0.72);
+      opacity: 0.48;
+      animation-delay: -2.4s;
+    }
+
+    @keyframes lineFlow {
+      0% {
+        background-position: -260px 0;
+        opacity: 0.36;
+        filter: drop-shadow(0 0 3px rgba(106, 53, 216, 0.10));
+      }
+      45% {
+        opacity: 0.96;
+        filter: drop-shadow(0 0 10px rgba(106, 53, 216, 0.24));
+      }
+      100% {
+        background-position: 260px 0;
+        opacity: 0.42;
+        filter: drop-shadow(0 0 3px rgba(106, 53, 216, 0.10));
+      }
+    }
+
+    .teaser-caption {
+      margin: 0 auto;
+      padding: 18px 22px;
       max-width: 980px;
       border: 1px solid rgba(106, 53, 216, 0.15);
-      border-radius: 22px;
+      border-radius: 18px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.74)),
-        radial-gradient(circle at 16% 10%, rgba(106, 53, 216, 0.10), transparent 35%);
-      box-shadow: 0 14px 38px rgba(68, 57, 102, 0.09);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(250, 248, 255, 0.76));
+      box-shadow: 0 12px 32px rgba(58, 45, 100, 0.08);
       text-align: left;
     }
 
-    .abstract-card h2 {
-      margin: 0 0 9px;
-      font-size: 24px;
-      line-height: 1.22;
-      letter-spacing: -0.4px;
+    .teaser-caption h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+      line-height: 1.28;
+      color: #282832;
     }
 
-    .abstract-card p {
+    .teaser-caption p {
       margin: 0;
-      color: #3c3c45;
-      font-size: 15.5px;
-      line-height: 1.72;
+      color: #4d4b57;
+      font-size: 15px;
+      line-height: 1.68;
       text-align: justify;
     }
 
@@ -264,6 +343,11 @@
       scroll-margin-top: 42px;
       padding-top: 28px;
       margin-top: 34px;
+    }
+
+    .introduction-section {
+      padding-top: 0;
+      margin-top: 8px;
     }
 
     .section-title {
@@ -411,15 +495,15 @@
         font-size: 13px;
       }
 
-      .abstract-card {
-        padding: 20px 18px;
+      .teaser-caption {
+        padding: 18px 16px;
       }
 
-      .abstract-card h2 {
-        font-size: 22px;
+      .teaser-caption h3 {
+        font-size: 17px;
       }
 
-      .abstract-card p {
+      .teaser-caption p {
         font-size: 14.5px;
       }
 
@@ -449,11 +533,11 @@
   <div class="page-shell">
     <nav class="side-nav" aria-label="Section navigation">
       <div class="nav-group">
-        <a class="nav-main active" href="#intro-overview" data-group="intro">
-          <span class="nav-dot"></span><span>Intro</span>
+        <a class="nav-main active" href="#introduction-overview" data-group="introduction">
+          <span class="nav-dot"></span><span>Introduction</span>
         </a>
-        <a class="nav-sub active" href="#intro-overview" data-group="intro" data-target="intro-overview">Overview</a>
-        <a class="nav-sub" href="#intro-video" data-group="intro" data-target="intro-video">MIND-Grasp Video Demo</a>
+        <a class="nav-sub active" href="#introduction-overview" data-group="introduction" data-target="introduction-overview">Overview</a>
+        <a class="nav-sub" href="#introduction-video" data-group="introduction" data-target="introduction-video">MIND-Grasp Video Demo</a>
       </div>
 
       <div class="nav-group">
@@ -501,7 +585,7 @@
             <span class="purple">M</span>ultiview
             <span class="purple">I</span>magination-guided
             <span class="purple">N</span>ext-best-action
-            <span class="purple">D</span>iscovery 
+            <span class="purple">D</span>iscovery
           </span>
           <span class="subtitle-line">
             for Occlusion-Aware Grasping
@@ -510,29 +594,22 @@
 
         <div class="anonymous-note">Anonymous Submission for CoRL 2026</div>
 
-        <div class="abstract-card" id="abstract">
-          <h2>Abstract</h2>
-          <p>
-            Occlusion poses a significant challenge to robotic grasping in cluttered scenes, especially when the target object is completely invisible. Under such full-occlusion conditions, the key difficulty shifts from grasp pose estimation alone to actively discovering the hidden target and ensuring a feasible retreat path. Existing methods mainly focus on partially visible targets, leaving target discovery and safe retreat under full occlusion insufficiently explored. To address this gap, we propose MIND-Grasp, a multi-view grasping framework inspired by human-like reasoning in occluded scenes. Given a language instruction and current observations, MIND-Grasp reconstructs an amodal 3D target model and the corresponding target-centric occlusion point cloud. Based on this occlusion cloud, MIND-Grasp performs NBA decision-making: it searches for observable corridors and updates the occlusion cloud in a closed loop, while executing grasp-remove actions only when critical occlusions must be removed. Once the target becomes visible and its geometry is reconstructed, the system further selects grasp poses that satisfy feasible retreat constraints. We validate the effectiveness of imagination-based point cloud reconstruction on the LINEMOD Occlusion and GraspNet-1Billion datasets, and extensive real-world occluded grasping experiments demonstrate that MIND-Grasp can handle different levels of occlusion, enabling robust target discovery, occlusion removal, and safe grasp execution.
-            </p>
-        </div>
-      </header>
-
-      <section class="section" id="intro">
-        <h2 class="section-title">Intro</h2>
-
-        <article class="subsection" id="intro-overview" data-group="intro">
-          <h3 class="subsection-title">Overview</h3>
-          <img class="figure-img" src="assets/teaser.png" alt="MIND-Grasp teaser overview" />
-          <div class="caption-card">
-            <h3>Occlusion-Aware Search-to-Grasp</h3>
+        <article class="teaser-block" id="introduction-overview" data-group="introduction">
+          <img class="teaser-img" src="assets/teaser.png" alt="MIND-Grasp teaser overview" />
+          <div class="teaser-motion-lines" aria-hidden="true">
+            <span class="moving-line"></span>
+          </div>
+          <div class="teaser-caption">
+            <h3>Overview</h3>
             <p>
-              MIND-Grasp addresses target retrieval under partial and full occlusion by combining amodal target imagination, active discovery, and safe retreat-aware grasping.
+              MIND-Grasp combines amodal target imagination, occlusion-cloud-guided multiview discovery, and retraction-aware grasp selection to retrieve targets under partial, full, and self-occlusion in cluttered scenes.
             </p>
           </div>
         </article>
+      </header>
 
-        <article class="subsection" id="intro-video" data-group="intro">
+      <section class="section introduction-section" id="introduction">
+        <article class="subsection" id="introduction-video" data-group="introduction">
           <h3 class="subsection-title">MIND-Grasp Video Demo</h3>
           <div class="video-placeholder">
             Video placeholder<br />Replace this block with your embedded video, iframe, or HTML5 video tag.
@@ -661,8 +738,8 @@
 
   <script>
     const observedSections = [
-      "intro-overview",
-      "intro-video",
+      "introduction-overview",
+      "introduction-video",
       "method-reconstruction",
       "method-retraction",
       "results-visual",
