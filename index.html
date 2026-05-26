@@ -17,12 +17,16 @@
     :root {
       --purple: #6a35d8;
       --purple-dark: #4e22b8;
-      --purple-light: #efe8ff;
+      --purple-soft: #efe8ff;
+      --purple-faint: rgba(106, 53, 216, 0.08);
       --text: #23232a;
-      --muted: #5e5e6a;
+      --muted: #626271;
+      --subtle: #8b8796;
       --line: #e3e0ea;
       --card: rgba(255, 255, 255, 0.88);
+      --inner: rgba(255, 255, 255, 0.74);
       --shadow: 0 28px 80px rgba(88, 74, 135, 0.18);
+      --soft-shadow: 0 16px 42px rgba(28, 23, 47, 0.10);
     }
 
     * {
@@ -54,51 +58,76 @@
       position: relative;
     }
 
+    /* Left navigation */
     .side-nav {
       position: fixed;
-      left: 32px;
+      left: 28px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 20;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+      width: 230px;
+      padding: 10px 0;
     }
 
-    .side-nav::before {
+    .nav-group {
+      position: relative;
+      padding: 6px 0 8px 0;
+    }
+
+    .nav-group::before {
       content: "";
       position: absolute;
-      left: 9px;
-      top: 14px;
-      bottom: 14px;
+      left: 10px;
+      top: 28px;
+      bottom: 6px;
       width: 2px;
       background: #ddd9e7;
       z-index: -1;
     }
 
-    .nav-item {
+    .nav-main,
+    .nav-sub {
       display: flex;
       align-items: center;
       gap: 13px;
-      padding: 12px 0;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      color: #3f3d48;
       transition: color 0.2s ease;
       white-space: nowrap;
     }
 
+    .nav-main {
+      padding: 8px 0;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.45px;
+      text-transform: uppercase;
+      color: #3f3d48;
+    }
+
+    .nav-sub {
+      margin-left: 35px;
+      padding: 4px 0;
+      font-size: 10.5px;
+      line-height: 1.25;
+      color: #777382;
+      max-width: 185px;
+      white-space: normal;
+    }
+
+    .nav-main:hover,
+    .nav-sub:hover {
+      color: var(--purple-dark);
+    }
+
     .nav-dot {
-      width: 20px;
-      height: 20px;
+      width: 21px;
+      height: 21px;
       border-radius: 999px;
       border: 2px solid #ddd9e7;
       background: #ffffff;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex: 0 0 auto;
       transition: all 0.2s ease;
     }
 
@@ -111,19 +140,25 @@
       transition: background 0.2s ease;
     }
 
-    .nav-item.active {
+    .nav-main.active {
       color: var(--purple-dark);
     }
 
-    .nav-item.active .nav-dot {
+    .nav-main.active .nav-dot {
       border-color: var(--purple);
       box-shadow: 0 0 0 7px rgba(106, 53, 216, 0.12);
     }
 
-    .nav-item.active .nav-dot::after {
+    .nav-main.active .nav-dot::after {
       background: var(--purple);
     }
 
+    .nav-sub.active {
+      color: var(--purple-dark);
+      font-weight: 750;
+    }
+
+    /* Page card */
     .main-card {
       width: min(1120px, calc(100% - 56px));
       margin: 58px auto 90px;
@@ -138,7 +173,7 @@
 
     .hero {
       text-align: center;
-      padding: 0 8px 20px;
+      padding: 0 8px 22px;
     }
 
     .brand {
@@ -150,8 +185,8 @@
     }
 
     .logo {
-      width: 88px;
-      height: 88px;
+      width: 96px;
+      height: 96px;
       object-fit: contain;
       display: block;
     }
@@ -162,11 +197,11 @@
       line-height: 1.02;
       font-weight: 850;
       letter-spacing: -2.8px;
-      color: #6a35d8;
+      color: var(--purple);
     }
 
     .subtitle {
-      font-size: 33px;
+      font-size: 32px;
       font-weight: 500;
       color: #3f3f46;
       line-height: 1.32;
@@ -191,93 +226,172 @@
       margin: 4px auto 10px;
       padding: 8px 16px;
       border-radius: 999px;
-      background: rgba(106, 53, 216, 0.08);
+      background: var(--purple-faint);
       color: var(--purple-dark);
       font-size: 15px;
       font-weight: 750;
       letter-spacing: 0.2px;
     }
 
-
-    .teaser {
-      margin: 28px auto 48px;
-      width: 100%;
-    }
-
-    .teaser img {
-      width: 100%;
-      display: block;
-      border-radius: 18px;
-      box-shadow: 0 18px 45px rgba(28, 23, 47, 0.11);
-      background: #f7f7fb;
+    .section,
+    .subsection {
+      scroll-margin-top: 44px;
     }
 
     .section {
-      scroll-margin-top: 44px;
-      padding-top: 28px;
-      margin-top: 34px;
+      padding-top: 30px;
+      margin-top: 38px;
     }
-
-    .section-header {
-      margin-bottom: 18px;
-      text-align: left;
-    }
-
 
     .section-title {
-      margin: 0;
-      font-size: 32px;
-      line-height: 1.22;
-      letter-spacing: -0.8px;
+      margin: 0 0 18px;
+      font-size: 34px;
+      line-height: 1.18;
+      letter-spacing: -0.9px;
+    }
+
+    .subsection {
+      margin-top: 28px;
+      padding-top: 8px;
+    }
+
+    .subsection-title {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: -0.35px;
+      color: #282832;
     }
 
     .abstract {
-      margin: 12px 0 0;
-      color: #33333d;
-      font-size: 17px;
+      margin: 10px 0 0;
+      color: #34343d;
+      font-size: 16.6px;
       text-align: justify;
     }
 
     .figure-img {
       width: 100%;
       display: block;
-      margin: 20px auto 12px;
-      border-radius: 16px;
+      margin: 16px auto 14px;
+      border-radius: 17px;
       background: #f7f7fb;
-      box-shadow: 0 14px 36px rgba(28, 23, 47, 0.10);
+      box-shadow: var(--soft-shadow);
     }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 18px;
+    .teaser-img {
+      margin-top: 10px;
     }
 
-    .info-card {
-      padding: 22px 22px 20px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.72);
+    .insight-card {
+      position: relative;
+      margin: 14px 0 18px;
+      padding: 20px 22px 20px;
+      border-radius: 22px;
+      border: 1px solid rgba(106, 53, 216, 0.16);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(249, 246, 255, 0.78));
+      box-shadow:
+        0 16px 42px rgba(75, 55, 130, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
     }
 
-    .info-card h3 {
-      margin: 0 0 8px;
-      font-size: 19px;
+    .insight-card::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 18px;
+      bottom: 18px;
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--purple), rgba(106, 53, 216, 0.25));
+    }
+
+    .insight-card h3 {
+      margin: 0 0 6px 18px;
+      font-size: 17px;
       line-height: 1.25;
+      color: #25242d;
     }
 
-    .info-card p {
-      margin: 0;
+    .insight-card p {
+      margin: 0 0 0 18px;
       color: var(--muted);
-      font-size: 15.5px;
+      font-size: 14.8px;
+      line-height: 1.62;
     }
 
-    .result-grid {
+    .video-placeholder,
+    .figure-placeholder {
+      width: 100%;
+      min-height: 330px;
+      border-radius: 18px;
+      border: 2px dashed rgba(106, 53, 216, 0.28);
+      background:
+        linear-gradient(135deg, rgba(106, 53, 216, 0.045), rgba(255, 255, 255, 0.82)),
+        repeating-linear-gradient(45deg, rgba(106, 53, 216, 0.04) 0, rgba(106, 53, 216, 0.04) 10px, transparent 10px, transparent 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7a7190;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+      margin: 14px 0 12px;
+    }
+
+    .video-placeholder {
+      min-height: 360px;
+    }
+
+    .analysis-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
-      margin-top: 18px;
+      gap: 30px;
+      margin-top: 8px;
+    }
+
+    .analysis-block {
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(227, 224, 234, 0.92);
+      box-shadow: 0 12px 34px rgba(28, 23, 47, 0.06);
+    }
+
+    .analysis-block .subsection-title {
+      margin-bottom: 10px;
+    }
+
+    .future-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .future-grid .figure-placeholder {
+      min-height: 320px;
+      height: 100%;
+      margin: 0;
+    }
+
+    .mini-points {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-left: 18px;
+    }
+
+    .mini-point {
+      padding: 12px 13px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.70);
+      border: 1px solid rgba(106, 53, 216, 0.12);
+      color: var(--muted);
+      font-size: 14.2px;
+      line-height: 1.48;
     }
 
     .footer-note {
@@ -289,7 +403,7 @@
       font-size: 14px;
     }
 
-    @media (max-width: 1180px) {
+    @media (max-width: 1280px) {
       .side-nav {
         display: none;
       }
@@ -301,7 +415,7 @@
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       .main-card {
         width: calc(100% - 20px);
         margin: 10px auto 36px;
@@ -315,8 +429,8 @@
       }
 
       .logo {
-        width: 60px;
-        height: 60px;
+        width: 68px;
+        height: 68px;
       }
 
       .title {
@@ -337,17 +451,25 @@
         font-size: 13px;
       }
 
-
       .section-title {
-        font-size: 26px;
+        font-size: 28px;
+      }
+
+      .subsection-title {
+        font-size: 21px;
       }
 
       .abstract {
         font-size: 15.8px;
       }
 
-      .two-col {
+      .future-grid {
         grid-template-columns: 1fr;
+      }
+
+      .video-placeholder,
+      .figure-placeholder {
+        min-height: 220px;
       }
     }
   </style>
@@ -356,18 +478,46 @@
 <body>
   <div class="page-shell">
     <nav class="side-nav" aria-label="Section navigation">
-      <a class="nav-item active" href="#intro" data-target="intro">
-        <span class="nav-dot"></span><span>Intro</span>
-      </a>
-      <a class="nav-item" href="#method" data-target="method">
-        <span class="nav-dot"></span><span>Method</span>
-      </a>
-      <a class="nav-item" href="#results" data-target="results">
-        <span class="nav-dot"></span><span>Results</span>
-      </a>
-      <a class="nav-item" href="#analysis" data-target="analysis">
-        <span class="nav-dot"></span><span>Analysis</span>
-      </a>
+      <div class="nav-group">
+        <a class="nav-main active" href="#intro" data-group="intro">
+          <span class="nav-dot"></span><span>Intro</span>
+        </a>
+        <a class="nav-sub active" href="#intro-teaser" data-target="intro-teaser">Teaser overview</a>
+        <a class="nav-sub" href="#abstract" data-target="abstract">Abstract</a>
+        <a class="nav-sub" href="#video" data-target="video">MIND-Grasp in Action</a>
+      </div>
+
+      <div class="nav-group">
+        <a class="nav-main" href="#method" data-group="method">
+          <span class="nav-dot"></span><span>Method</span>
+        </a>
+        <a class="nav-sub" href="#method-reconstruction" data-target="method-reconstruction">Occluded Scene Reconstruction</a>
+        <a class="nav-sub" href="#method-retraction" data-target="method-retraction">Retraction-Aware Selection</a>
+      </div>
+
+      <div class="nav-group">
+        <a class="nav-main" href="#results" data-group="results">
+          <span class="nav-dot"></span><span>Results</span>
+        </a>
+        <a class="nav-sub" href="#result-visualization" data-target="result-visualization">Visualization of MIND-Grasp</a>
+        <a class="nav-sub" href="#result-full" data-target="result-full">Full-Occlusion Discovery</a>
+      </div>
+
+      <div class="nav-group">
+        <a class="nav-main" href="#analysis" data-group="analysis">
+          <span class="nav-dot"></span><span>Analysis</span>
+        </a>
+        <a class="nav-sub" href="#analysis-reconstruction" data-target="analysis-reconstruction">Reconstruction Refinement</a>
+        <a class="nav-sub" href="#analysis-nbv" data-target="analysis-nbv">NBV Trajectory Comparison</a>
+        <a class="nav-sub" href="#analysis-retreat" data-target="analysis-retreat">Retraction Success</a>
+        <a class="nav-sub" href="#analysis-discovery" data-target="analysis-discovery">Discovery-to-Grasp</a>
+      </div>
+
+      <div class="nav-group">
+        <a class="nav-main" href="#future" data-group="future">
+          <span class="nav-dot"></span><span>Future Work</span>
+        </a>
+      </div>
     </nav>
 
     <main class="main-card">
@@ -384,104 +534,206 @@
             <span class="purple">N</span>ext-Best-Action
             <span class="purple">D</span>iscovery
           </span>
-          <span class="subtitle-line">
-            for Occlusion-Aware Grasping
-          </span>
+          <span class="subtitle-line">for Occlusion-Aware Grasping</span>
         </div>
 
         <div class="anonymous-note">Anonymous Submission for CoRL 2026</div>
       </header>
 
-      <!-- Only teaser.png is inserted above the abstract -->
-      <div class="teaser">
-        <img src="assets/teaser.png" alt="MIND-Grasp teaser figure" />
-      </div>
-
-      <section class="section" id="abstract">
-        <div class="section-header">
-          <h2 class="section-title">Abstract</h2>
+      <!-- INTRO -->
+      <section class="section" id="intro-teaser" data-group="intro">
+        <h2 class="section-title">Intro</h2>
+        <div class="subsection">
+          <h3 class="subsection-title">Teaser Overview</h3>
+          <img class="figure-img teaser-img" src="assets/teaser.png" alt="MIND-Grasp teaser overview" />
+          <div class="insight-card">
+            <h3>Occluded Grasping at a Glance</h3>
+            <p>
+              The teaser illustrates how MIND-Grasp discovers hidden targets, reasons about occlusion, and selects grasp actions that also support safe withdrawal from clutter.
+            </p>
+          </div>
         </div>
+      </section>
 
+      <section class="subsection" id="abstract" data-group="intro">
+        <h3 class="subsection-title">Abstract</h3>
         <p class="abstract">
-          Occlusion poses a significant challenge to robotic grasping in cluttered scenes, especially when the target object is completely invisible. Under such full-occlusion conditions, the key difficulty shifts from grasp pose estimation alone to actively discovering the hidden target and ensuring a feasible retreat path. Existing methods mainly focus on partially visible targets, leaving target discovery and safe retreat under full occlusion insufficiently explored. To address this gap, we propose <strong>MIND-Grasp</strong>, a multi-view grasping framework inspired by human-like reasoning in occluded scenes. Given a language instruction and current observations, MIND-Grasp reconstructs an amodal 3D target model and the corresponding target-centric occlusion point cloud. Based on this occlusion cloud, MIND-Grasp performs NBA decision-making: it searches for observable corridors and updates the occlusion cloud in a closed loop, while executing grasp-remove actions only when critical occlusions must be removed. Once the target becomes visible and its geometry is reconstructed, the system further selects grasp poses that satisfy feasible retreat constraints. We validate the effectiveness of imagination-based point cloud reconstruction on the LINEMOD Occlusion and GraspNet-1Billion datasets, and extensive real-world occluded grasping experiments demonstrate that MIND-Grasp can handle different levels of occlusion, enabling robust target discovery, occlusion removal, and safe grasp execution.
-          </p>
+          Occlusion poses a significant challenge to robotic grasping in cluttered scenes, especially when the target object is completely invisible. Under such full-occlusion conditions, the key difficulty shifts from grasp pose estimation alone to actively discovering the hidden target and ensuring a feasible retreat path. Existing methods mainly focus on partially visible targets, leaving target discovery and safe retreat under full occlusion insufficiently explored. To address this gap, we propose <strong>MIND-Grasp</strong>, a multi-view grasping framework inspired by human-like reasoning in occluded scenes. Given a language instruction and current observations, MIND-Grasp reconstructs an amodal 3D target model and the corresponding target-centric occlusion point cloud. Based on this occlusion cloud, MIND-Grasp searches for observable corridors, updates the target geometry in a closed loop, and executes grasp-remove only when critical occlusions must be removed. Once the target becomes visible and its geometry is reconstructed, the system further selects grasp poses that satisfy feasible-retreat constraints.
+        </p>
       </section>
 
-      <section class="section" id="method">
-        <div class="section-header">
-          <h2 class="section-title">Method Overview</h2>
-        </div>
-
-        <img class="figure-img" src="assets/overview.png" alt="MIND-Grasp method overview" />
-
-        <div class="two-col">
-          <div class="info-card">
-            <h3>Amodal Target Imagination</h3>
-            <p>
-              MIND-Grasp first builds an amodal 3D hypothesis of the target from language and partial RGB-D observations, providing a geometric prior for occlusion reasoning.
-            </p>
-          </div>
-          <div class="info-card">
-            <h3>Occlusion-Cloud-Guided Discovery</h3>
-            <p>
-              The system constructs a target-centric occlusion cloud and samples observable corridors to actively reduce target uncertainty through multiview exploration.
-            </p>
-          </div>
-        </div>
-
-        <img class="figure-img" src="assets/grasp.png" alt="Retraction-aware grasping pipeline" />
-      </section>
-
-      <section class="section" id="results">
-        <div class="section-header">
-          <h2 class="section-title">Qualitative Results</h2>
-        </div>
-
-        <div class="result-grid">
-          <img class="figure-img" src="assets/robot-visual.png" alt="Robotic grasping qualitative results" />
-          <img class="figure-img" src="assets/full_occluded.png" alt="Fully occluded target discovery and grasping results" />
+      <section class="subsection" id="video" data-group="intro">
+        <h3 class="subsection-title">MIND-Grasp in Action</h3>
+        <div class="video-placeholder">
+          Video placeholder<br />Insert demo video here
         </div>
       </section>
 
-      <section class="section" id="analysis">
-        <div class="section-header">
-          <h2 class="section-title">Occlusion-Aware Grasping Analysis</h2>
-        </div>
+      <!-- METHOD -->
+      <section class="section" id="method" data-group="method">
+        <h2 class="section-title">Method</h2>
 
-        <div class="two-col">
-          <div class="info-card">
-            <h3>Why Active Discovery?</h3>
+        <div class="subsection" id="method-reconstruction" data-group="method">
+          <h3 class="subsection-title">Occluded Scene Reconstruction</h3>
+          <img class="figure-img" src="assets/overview.png" alt="Occluded scene reconstruction overview" />
+          <div class="insight-card">
+            <h3>Amodal Reconstruction and Observable Corridors</h3>
             <p>
-              Severe occlusion makes single-view grasp prediction unreliable. Active discovery progressively recovers observable target regions and reduces ambiguity before grasp execution.
+              MIND-Grasp imagines amodal 3D target geometry under partial and full occlusion, then builds a target-centric occlusion cloud to guide closed-loop multi-view discovery through observable corridors.
             </p>
           </div>
-          <div class="info-card">
-            <h3>Why Retraction-Aware Grasping?</h3>
+        </div>
+
+        <div class="subsection" id="method-retraction" data-group="method">
+          <h3 class="subsection-title">Retraction-Aware Grasp Selection</h3>
+          <img class="figure-img" src="assets/grasp.png" alt="Retraction-aware grasp selection" />
+          <div class="insight-card">
+            <h3>Grasp Selection with Retreat Feasibility</h3>
             <p>
-              A grasp is not sufficient if the target cannot be withdrawn. MIND-Grasp explicitly checks whether the gripper-target composite body can safely retreat from clutter.
+              MIND-Grasp plans an object-level retreat trajectory and selects a grasp whose gripper-target composite body can safely follow it. If no feasible grasp is found, the dominant blocker is removed and the retreat plan is updated.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS -->
+      <section class="section" id="results" data-group="results">
+        <h2 class="section-title">Results</h2>
+
+        <div class="subsection" id="result-visualization" data-group="results">
+          <h3 class="subsection-title">Visualization of MIND-Grasp</h3>
+          <img class="figure-img" src="assets/robot-visual.png" alt="Visualization of MIND-Grasp" />
+          <div class="insight-card">
+            <h3>Closed-Loop Discovery to Grasp</h3>
+            <p>
+              MIND-Grasp performs observable-corridor-guided NBV discovery, plans a safe gripper-target retreat trajectory, and executes the final grasp in cluttered scenes.
+            </p>
+          </div>
+        </div>
+
+        <div class="subsection" id="result-full" data-group="results">
+          <h3 class="subsection-title">Full-Occlusion Discovery</h3>
+          <img class="figure-img" src="assets/full_occluded.png" alt="Full-occlusion discovery" />
+          <div class="insight-card">
+            <h3>From Hidden Target to Safe Grasp</h3>
+            <p>
+              For fully occluded targets, MIND-Grasp removes the critical occluder, updates the amodal 3D target model through discovery, and grasps the exposed target.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANALYSIS -->
+      <section class="section" id="analysis" data-group="analysis">
+        <h2 class="section-title">Analysis</h2>
+
+        <div class="analysis-grid">
+          <article class="analysis-block" id="analysis-reconstruction" data-group="analysis">
+            <h3 class="subsection-title">Multi-View Refinement under Severe Occlusion</h3>
+            <div class="figure-placeholder">
+              Analysis figure placeholder<br />Insert single-view vs MIND-Grasp reconstruction comparison
+            </div>
+            <div class="insight-card">
+              <h3>Reconstruction Quality</h3>
+              <p>
+                Single-view reconstruction can be unreliable under heavy occlusion. MIND-Grasp uses occlusion-cloud-guided NBV updates to recover more complete and pose-consistent 3D geometry for grasping and retreat analysis.
+              </p>
+            </div>
+          </article>
+
+          <article class="analysis-block" id="analysis-nbv" data-group="analysis">
+            <h3 class="subsection-title">NBV Trajectory Comparison</h3>
+            <div class="figure-placeholder">
+              Analysis figure placeholder<br />Insert NBV trajectory comparison across five scenes
+            </div>
+            <div class="insight-card">
+              <h3>View Planning Efficiency</h3>
+              <p>
+                NGF often explores globally with longer paths, while VISO-Grasp may resample similar viewpoints. MIND-Grasp focuses on target-centric occlusion clouds, producing shorter paths with fewer target-critical views.
+              </p>
+            </div>
+          </article>
+
+          <article class="analysis-block" id="analysis-retreat" data-group="analysis">
+            <h3 class="subsection-title">Retraction Success with RCC</h3>
+            <div class="figure-placeholder">
+              Analysis figure placeholder<br />Insert retraction success rate bar chart
+            </div>
+            <div class="insight-card">
+              <h3>Retraction-Aware Validation</h3>
+              <p>
+                The bar height reports collision-free retraction success for high-score grasps, with retained feasible grasps annotated above. RCC improves safety by checking whether the gripper-target body can actually withdraw.
+              </p>
+            </div>
+          </article>
+
+          <article class="analysis-block" id="analysis-discovery" data-group="analysis">
+            <h3 class="subsection-title">Discovery-to-Grasp for Fully Hidden Objects</h3>
+            <div class="figure-placeholder">
+              Analysis figure placeholder<br />Insert full-occlusion discovery-to-grasp process
+            </div>
+            <div class="insight-card">
+              <h3>Full-Occlusion Reasoning</h3>
+              <p>
+                From an invisible target, MIND-Grasp constructs an imaginary amodal hypothesis, embeds it into a coarse region, selects NBV views from the occlusion cloud, and uses the recovered geometry for safe retraction-aware grasping.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- FUTURE WORK -->
+      <section class="section" id="future" data-group="future">
+        <h2 class="section-title">Future Work</h2>
+        <div class="future-grid">
+          <div class="figure-placeholder">
+            Future work figure placeholder<br />Insert representative failure cases here
+          </div>
+
+          <div class="insight-card">
+            <h3>Failure Cases and Extensions</h3>
+            <div class="mini-points">
+              <div class="mini-point">
+                Maintain multiple hidden-region beliefs when VLM priors are ambiguous, rather than relying on a single coarse target hypothesis.
+              </div>
+              <div class="mini-point">
+                Incorporate uncertainty-aware amodal 3D generation and closed-loop RGB-D correction to reduce geometry and pose errors in deep clutter.
+              </div>
+              <div class="mini-point">
+                Extend beyond parallel-gripper grasp-remove to pushing, pulling, dragging, opening, and dexterous hands for more human-like operable-space recovery.
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <div class="footer-note">
-        Code and additional materials will be released upon acceptance.
+        Additional materials will be released upon acceptance.
       </div>
     </main>
   </div>
 
   <script>
-    const sections = ["intro", "method", "results", "analysis"];
-    const navItems = document.querySelectorAll(".nav-item");
+    const mainNavItems = document.querySelectorAll(".nav-main");
+    const subNavItems = document.querySelectorAll(".nav-sub");
+    const observedSections = document.querySelectorAll("[data-group][id]");
+
+    const setActive = (id, group) => {
+      mainNavItems.forEach(item => {
+        item.classList.toggle("active", item.dataset.group === group);
+      });
+      subNavItems.forEach(item => {
+        item.classList.toggle("active", item.dataset.target === id);
+      });
+    };
 
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const currentId = entry.target.id;
-            navItems.forEach(item => {
-              item.classList.toggle("active", item.dataset.target === currentId);
-            });
+            const id = entry.target.id;
+            const group = entry.target.dataset.group || id;
+            setActive(id, group);
           }
         });
       },
@@ -492,10 +744,7 @@
       }
     );
 
-    sections.forEach(id => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
+    observedSections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
