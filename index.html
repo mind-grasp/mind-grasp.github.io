@@ -769,6 +769,43 @@
       box-shadow: inset 0 0 0 1px rgba(36, 32, 52, 0.08);
     }
 
+
+    .image-slot {
+      width: 100%;
+      min-height: 300px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(36, 32, 52, 0.08);
+    }
+
+    .image-slot img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      display: block;
+      object-fit: contain;
+      background: #ffffff;
+    }
+
+    .video-image-slot,
+    .future-image-slot {
+      min-height: 360px;
+    }
+
+    .video-image-slot img,
+    .future-image-slot img {
+      min-height: 360px;
+    }
+
+    .static-analysis-image {
+      margin: 14px 0;
+      box-shadow: var(--soft-shadow);
+    }
+
     .footer-note {
       margin-top: 56px;
       padding-top: 26px;
@@ -799,6 +836,11 @@
       }
 
       .interactive-placeholder {
+        min-height: 280px;
+      }
+
+      .image-slot,
+      .image-slot img {
         min-height: 280px;
       }
 
@@ -910,6 +952,11 @@
       }
 
       .interactive-placeholder {
+        min-height: 220px;
+      }
+
+      .image-slot,
+      .image-slot img {
         min-height: 220px;
       }
 
@@ -1029,8 +1076,8 @@
       <section class="section introduction-section" id="introduction">
         <article class="subsection" id="introduction-video" data-group="introduction">
           <h3 class="subsection-title">MIND-Grasp Video Demo</h3>
-          <div class="video-placeholder">
-            Video placeholder<br />Replace this block with your embedded video, iframe, or HTML5 video tag.
+          <div class="image-slot video-image-slot">
+            <img src="assets/video_demo.png" alt="MIND-Grasp video demo preview" />
           </div>
         </article>
       </section>
@@ -1083,22 +1130,16 @@
               <div class="result-stage-card" data-stage="nbv">
                 <h4>Next-Best-View</h4>
                 <div class="scene-stage-content active" data-scene="scene-1">
-                  <div class="interactive-placeholder" id="scene1-nbv-viewer-slot">
-                    <div>
-                      <strong>Scene 1 NBV 3D Viewer</strong>
-                      <span>Insert the interactive Next-Best-View 3D viewer for Scene 1 here.</span>
-                    </div>
+                  <div class="image-slot" id="scene1-nbv-viewer-slot">
+                    <img src="assets/results/scene1/nbv.png" alt="Scene 1 Next-Best-View result" />
                   </div>
                   <!-- Scene 1 NBV example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene1/nbv_viewer.html" title="Scene 1 Next-Best-View 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="scene-stage-content" data-scene="scene-2">
-                  <div class="interactive-placeholder" id="scene2-nbv-viewer-slot">
-                    <div>
-                      <strong>Scene 2 NBV 3D Viewer</strong>
-                      <span>Insert the interactive Next-Best-View 3D viewer for Scene 2 here.</span>
-                    </div>
+                  <div class="image-slot" id="scene2-nbv-viewer-slot">
+                    <img src="assets/results/scene2/nbv.png" alt="Scene 2 Next-Best-View result" />
                   </div>
                   <!-- Scene 2 NBV example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene2/nbv_viewer.html" title="Scene 2 Next-Best-View 3D viewer"></iframe>
@@ -1110,22 +1151,16 @@
               <div class="result-stage-card is-retreat" data-stage="retreat">
                 <h4>Retreat Trajectory</h4>
                 <div class="scene-stage-content active" data-scene="scene-1">
-                  <div class="interactive-placeholder" id="scene1-retreat-viewer-slot">
-                    <div>
-                      <strong>Scene 1 Retreat Trajectory 3D Viewer</strong>
-                      <span>Insert the centered retreat-trajectory 3D viewer for Scene 1 here.</span>
-                    </div>
+                  <div class="image-slot" id="scene1-retreat-viewer-slot">
+                    <img src="assets/results/scene1/retreat_trajectory.png" alt="Scene 1 retreat trajectory result" />
                   </div>
                   <!-- Scene 1 retreat example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene1/retreat_viewer.html" title="Scene 1 retreat trajectory 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="scene-stage-content" data-scene="scene-2">
-                  <div class="interactive-placeholder" id="scene2-retreat-viewer-slot">
-                    <div>
-                      <strong>Scene 2 Retreat Trajectory 3D Viewer</strong>
-                      <span>Insert the centered retreat-trajectory 3D viewer for Scene 2 here.</span>
-                    </div>
+                  <div class="image-slot" id="scene2-retreat-viewer-slot">
+                    <img src="assets/results/scene2/retreat_trajectory.png" alt="Scene 2 retreat trajectory result" />
                   </div>
                   <!-- Scene 2 retreat example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene2/retreat_viewer.html" title="Scene 2 retreat trajectory 3D viewer"></iframe>
@@ -1137,22 +1172,16 @@
               <div class="result-stage-card" data-stage="video">
                 <h4>Grasp Execution</h4>
                 <div class="scene-stage-content active" data-scene="scene-1">
-                  <div class="interactive-placeholder video-slot" id="scene1-video-viewer-slot">
-                    <div>
-                      <strong>Scene 1 Real-Robot Video</strong>
-                      <span>Insert the physical experiment video for Scene 1 here.</span>
-                    </div>
+                  <div class="image-slot result-video-preview" id="scene1-video-viewer-slot">
+                    <img src="assets/results/scene1/grasp_execution.png" alt="Scene 1 grasp execution preview" />
                   </div>
                   <!-- Scene 1 video example replacement:
                   <video class="result-video" controls playsinline muted src="assets/results/scene1/grasp_execution.mp4"></video>
                   -->
                 </div>
                 <div class="scene-stage-content" data-scene="scene-2">
-                  <div class="interactive-placeholder video-slot" id="scene2-video-viewer-slot">
-                    <div>
-                      <strong>Scene 2 Real-Robot Video</strong>
-                      <span>Insert the physical experiment video for Scene 2 here.</span>
-                    </div>
+                  <div class="image-slot result-video-preview" id="scene2-video-viewer-slot">
+                    <img src="assets/results/scene2/grasp_execution.png" alt="Scene 2 grasp execution preview" />
                   </div>
                   <!-- Scene 2 video example replacement:
                   <video class="result-video" controls playsinline muted src="assets/results/scene2/grasp_execution.mp4"></video>
@@ -1218,55 +1247,40 @@
                 <div class="analysis-stage-card">
                   <h4>Single-View Reconstruction</h4>
                 <div class="analysis-stage-content active" data-analysis-group="reconstruction" data-case="case-1">
-                  <div class="analysis-placeholder" id="reconstruction-case1-single_view-slot">
-                    <div>
-                      <strong>Case 1 Single-View Reconstruction 3D Viewer</strong>
-                      <span>Insert the interactive single-view reconstruction 3D viewer for Case 1 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case1-single_view-slot">
+                    <img src="assets/analysis/case1/single_view.png" alt="Case1 single-view reconstruction" />
                   </div>
                   <!-- Case 1 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/single_view_viewer.html" title="Case 1 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-2">
-                  <div class="analysis-placeholder" id="reconstruction-case2-single_view-slot">
-                    <div>
-                      <strong>Case 2 Single-View Reconstruction 3D Viewer</strong>
-                      <span>Insert the interactive single-view reconstruction 3D viewer for Case 2 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case2-single_view-slot">
+                    <img src="assets/analysis/case2/single_view.png" alt="Case2 single-view reconstruction" />
                   </div>
                   <!-- Case 2 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/single_view_viewer.html" title="Case 2 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-3">
-                  <div class="analysis-placeholder" id="reconstruction-case3-single_view-slot">
-                    <div>
-                      <strong>Case 3 Single-View Reconstruction 3D Viewer</strong>
-                      <span>Insert the interactive single-view reconstruction 3D viewer for Case 3 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case3-single_view-slot">
+                    <img src="assets/analysis/case3/single_view.png" alt="Case3 single-view reconstruction" />
                   </div>
                   <!-- Case 3 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/single_view_viewer.html" title="Case 3 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-4">
-                  <div class="analysis-placeholder" id="reconstruction-case4-single_view-slot">
-                    <div>
-                      <strong>Case 4 Single-View Reconstruction 3D Viewer</strong>
-                      <span>Insert the interactive single-view reconstruction 3D viewer for Case 4 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case4-single_view-slot">
+                    <img src="assets/analysis/case4/single_view.png" alt="Case4 single-view reconstruction" />
                   </div>
                   <!-- Case 4 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/single_view_viewer.html" title="Case 4 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-5">
-                  <div class="analysis-placeholder" id="reconstruction-case5-single_view-slot">
-                    <div>
-                      <strong>Case 5 Single-View Reconstruction 3D Viewer</strong>
-                      <span>Insert the interactive single-view reconstruction 3D viewer for Case 5 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case5-single_view-slot">
+                    <img src="assets/analysis/case5/single_view.png" alt="Case5 single-view reconstruction" />
                   </div>
                   <!-- Case 5 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/single_view_viewer.html" title="Case 5 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
@@ -1277,55 +1291,40 @@
                 <div class="analysis-stage-card">
                   <h4>Multi-View Refinement</h4>
                 <div class="analysis-stage-content active" data-analysis-group="reconstruction" data-case="case-1">
-                  <div class="analysis-placeholder" id="reconstruction-case1-multi_view-slot">
-                    <div>
-                      <strong>Case 1 Multi-View Refinement 3D Viewer</strong>
-                      <span>Insert the interactive multi-view refinement 3D viewer for Case 1 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case1-multi_view-slot">
+                    <img src="assets/analysis/case1/multi_view_refinement.png" alt="Case1 multi-view refinement" />
                   </div>
                   <!-- Case 1 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/multi_view_viewer.html" title="Case 1 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-2">
-                  <div class="analysis-placeholder" id="reconstruction-case2-multi_view-slot">
-                    <div>
-                      <strong>Case 2 Multi-View Refinement 3D Viewer</strong>
-                      <span>Insert the interactive multi-view refinement 3D viewer for Case 2 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case2-multi_view-slot">
+                    <img src="assets/analysis/case2/multi_view_refinement.png" alt="Case2 multi-view refinement" />
                   </div>
                   <!-- Case 2 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/multi_view_viewer.html" title="Case 2 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-3">
-                  <div class="analysis-placeholder" id="reconstruction-case3-multi_view-slot">
-                    <div>
-                      <strong>Case 3 Multi-View Refinement 3D Viewer</strong>
-                      <span>Insert the interactive multi-view refinement 3D viewer for Case 3 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case3-multi_view-slot">
+                    <img src="assets/analysis/case3/multi_view_refinement.png" alt="Case3 multi-view refinement" />
                   </div>
                   <!-- Case 3 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/multi_view_viewer.html" title="Case 3 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-4">
-                  <div class="analysis-placeholder" id="reconstruction-case4-multi_view-slot">
-                    <div>
-                      <strong>Case 4 Multi-View Refinement 3D Viewer</strong>
-                      <span>Insert the interactive multi-view refinement 3D viewer for Case 4 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case4-multi_view-slot">
+                    <img src="assets/analysis/case4/multi_view_refinement.png" alt="Case4 multi-view refinement" />
                   </div>
                   <!-- Case 4 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/multi_view_viewer.html" title="Case 4 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-5">
-                  <div class="analysis-placeholder" id="reconstruction-case5-multi_view-slot">
-                    <div>
-                      <strong>Case 5 Multi-View Refinement 3D Viewer</strong>
-                      <span>Insert the interactive multi-view refinement 3D viewer for Case 5 here.</span>
-                    </div>
+                  <div class="image-slot" id="reconstruction-case5-multi_view-slot">
+                    <img src="assets/analysis/case5/multi_view_refinement.png" alt="Case5 multi-view refinement" />
                   </div>
                   <!-- Case 5 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/multi_view_viewer.html" title="Case 5 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
@@ -1374,55 +1373,40 @@
                 <div class="analysis-stage-card">
                   <h4>NGF</h4>
                 <div class="analysis-stage-content active" data-analysis-group="nbv" data-case="case-1">
-                  <div class="analysis-placeholder" id="nbv-case1-ngf-slot">
-                    <div>
-                      <strong>Case 1 NGF Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive NGF trajectory 3D viewer for Case 1 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case1-ngf-slot">
+                    <img src="assets/analysis/case1/ngf_trajectory.png" alt="Case1 NGF trajectory" />
                   </div>
                   <!-- Case 1 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/ngf_viewer.html" title="Case 1 NGF Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-2">
-                  <div class="analysis-placeholder" id="nbv-case2-ngf-slot">
-                    <div>
-                      <strong>Case 2 NGF Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive NGF trajectory 3D viewer for Case 2 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case2-ngf-slot">
+                    <img src="assets/analysis/case2/ngf_trajectory.png" alt="Case2 NGF trajectory" />
                   </div>
                   <!-- Case 2 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/ngf_viewer.html" title="Case 2 NGF Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-3">
-                  <div class="analysis-placeholder" id="nbv-case3-ngf-slot">
-                    <div>
-                      <strong>Case 3 NGF Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive NGF trajectory 3D viewer for Case 3 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case3-ngf-slot">
+                    <img src="assets/analysis/case3/ngf_trajectory.png" alt="Case3 NGF trajectory" />
                   </div>
                   <!-- Case 3 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/ngf_viewer.html" title="Case 3 NGF Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-4">
-                  <div class="analysis-placeholder" id="nbv-case4-ngf-slot">
-                    <div>
-                      <strong>Case 4 NGF Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive NGF trajectory 3D viewer for Case 4 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case4-ngf-slot">
+                    <img src="assets/analysis/case4/ngf_trajectory.png" alt="Case4 NGF trajectory" />
                   </div>
                   <!-- Case 4 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/ngf_viewer.html" title="Case 4 NGF Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-5">
-                  <div class="analysis-placeholder" id="nbv-case5-ngf-slot">
-                    <div>
-                      <strong>Case 5 NGF Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive NGF trajectory 3D viewer for Case 5 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case5-ngf-slot">
+                    <img src="assets/analysis/case5/ngf_trajectory.png" alt="Case5 NGF trajectory" />
                   </div>
                   <!-- Case 5 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/ngf_viewer.html" title="Case 5 NGF Trajectory 3D Viewer 3D viewer"></iframe>
@@ -1433,55 +1417,40 @@
                 <div class="analysis-stage-card">
                   <h4>VISO-Grasp</h4>
                 <div class="analysis-stage-content active" data-analysis-group="nbv" data-case="case-1">
-                  <div class="analysis-placeholder" id="nbv-case1-viso-slot">
-                    <div>
-                      <strong>Case 1 VISO-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive VISO-Grasp trajectory 3D viewer for Case 1 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case1-viso-slot">
+                    <img src="assets/analysis/case1/viso_grasp_trajectory.png" alt="Case1 VISO-Grasp trajectory" />
                   </div>
                   <!-- Case 1 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/viso_viewer.html" title="Case 1 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-2">
-                  <div class="analysis-placeholder" id="nbv-case2-viso-slot">
-                    <div>
-                      <strong>Case 2 VISO-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive VISO-Grasp trajectory 3D viewer for Case 2 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case2-viso-slot">
+                    <img src="assets/analysis/case2/viso_grasp_trajectory.png" alt="Case2 VISO-Grasp trajectory" />
                   </div>
                   <!-- Case 2 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/viso_viewer.html" title="Case 2 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-3">
-                  <div class="analysis-placeholder" id="nbv-case3-viso-slot">
-                    <div>
-                      <strong>Case 3 VISO-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive VISO-Grasp trajectory 3D viewer for Case 3 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case3-viso-slot">
+                    <img src="assets/analysis/case3/viso_grasp_trajectory.png" alt="Case3 VISO-Grasp trajectory" />
                   </div>
                   <!-- Case 3 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/viso_viewer.html" title="Case 3 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-4">
-                  <div class="analysis-placeholder" id="nbv-case4-viso-slot">
-                    <div>
-                      <strong>Case 4 VISO-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive VISO-Grasp trajectory 3D viewer for Case 4 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case4-viso-slot">
+                    <img src="assets/analysis/case4/viso_grasp_trajectory.png" alt="Case4 VISO-Grasp trajectory" />
                   </div>
                   <!-- Case 4 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/viso_viewer.html" title="Case 4 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-5">
-                  <div class="analysis-placeholder" id="nbv-case5-viso-slot">
-                    <div>
-                      <strong>Case 5 VISO-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive VISO-Grasp trajectory 3D viewer for Case 5 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case5-viso-slot">
+                    <img src="assets/analysis/case5/viso_grasp_trajectory.png" alt="Case5 VISO-Grasp trajectory" />
                   </div>
                   <!-- Case 5 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/viso_viewer.html" title="Case 5 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
@@ -1492,55 +1461,40 @@
                 <div class="analysis-stage-card">
                   <h4>MIND-Grasp</h4>
                 <div class="analysis-stage-content active" data-analysis-group="nbv" data-case="case-1">
-                  <div class="analysis-placeholder" id="nbv-case1-mind_grasp-slot">
-                    <div>
-                      <strong>Case 1 MIND-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive MIND-Grasp trajectory 3D viewer for Case 1 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case1-mind_grasp-slot">
+                    <img src="assets/analysis/case1/mind_grasp_trajectory.png" alt="Case1 MIND-Grasp trajectory" />
                   </div>
                   <!-- Case 1 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/mind_grasp_viewer.html" title="Case 1 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-2">
-                  <div class="analysis-placeholder" id="nbv-case2-mind_grasp-slot">
-                    <div>
-                      <strong>Case 2 MIND-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive MIND-Grasp trajectory 3D viewer for Case 2 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case2-mind_grasp-slot">
+                    <img src="assets/analysis/case2/mind_grasp_trajectory.png" alt="Case2 MIND-Grasp trajectory" />
                   </div>
                   <!-- Case 2 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/mind_grasp_viewer.html" title="Case 2 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-3">
-                  <div class="analysis-placeholder" id="nbv-case3-mind_grasp-slot">
-                    <div>
-                      <strong>Case 3 MIND-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive MIND-Grasp trajectory 3D viewer for Case 3 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case3-mind_grasp-slot">
+                    <img src="assets/analysis/case3/mind_grasp_trajectory.png" alt="Case3 MIND-Grasp trajectory" />
                   </div>
                   <!-- Case 3 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/mind_grasp_viewer.html" title="Case 3 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-4">
-                  <div class="analysis-placeholder" id="nbv-case4-mind_grasp-slot">
-                    <div>
-                      <strong>Case 4 MIND-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive MIND-Grasp trajectory 3D viewer for Case 4 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case4-mind_grasp-slot">
+                    <img src="assets/analysis/case4/mind_grasp_trajectory.png" alt="Case4 MIND-Grasp trajectory" />
                   </div>
                   <!-- Case 4 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/mind_grasp_viewer.html" title="Case 4 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-5">
-                  <div class="analysis-placeholder" id="nbv-case5-mind_grasp-slot">
-                    <div>
-                      <strong>Case 5 MIND-Grasp Trajectory 3D Viewer</strong>
-                      <span>Insert the interactive MIND-Grasp trajectory 3D viewer for Case 5 here.</span>
-                    </div>
+                  <div class="image-slot" id="nbv-case5-mind_grasp-slot">
+                    <img src="assets/analysis/case5/mind_grasp_trajectory.png" alt="Case5 MIND-Grasp trajectory" />
                   </div>
                   <!-- Case 5 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/mind_grasp_viewer.html" title="Case 5 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
@@ -1560,7 +1514,9 @@
 
           <article class="subsection" id="analysis-retraction" data-group="analysis">
             <h3 class="subsection-title">Retraction Success Analysis</h3>
-            <div class="placeholder">Experiment figure placeholder: retraction success rate of HGGD-predicted grasps</div>
+            <div class="image-slot static-analysis-image">
+              <img src="assets/analysis/retraction_success.png" alt="Retraction success analysis" />
+            </div>
             <div class="analysis-card">
               <h3>Retraction Collision Check</h3>
               <p>
@@ -1571,7 +1527,9 @@
 
           <article class="subsection" id="analysis-discovery" data-group="analysis">
             <h3 class="subsection-title">Discovery-to-Grasp Process</h3>
-            <div class="placeholder">Experiment figure placeholder: fully hidden target discovery-to-grasp process</div>
+            <div class="image-slot static-analysis-image">
+              <img src="assets/analysis/discovery_to_grasp.png" alt="Discovery-to-grasp process" />
+            </div>
             <div class="analysis-card">
               <h3>Full-Occlusion Retrieval</h3>
               <p>
@@ -1584,7 +1542,9 @@
 
       <section class="section" id="future-work" data-group="future">
         <h2 class="section-title">Future Work</h2>
-        <div class="placeholder">Future work figure placeholder</div>
+        <div class="image-slot future-image-slot">
+          <img src="assets/future_work.png" alt="Future work overview" />
+        </div>
         <div class="future-card">
           <h3>Limitations and Extensions</h3>
           <p>
