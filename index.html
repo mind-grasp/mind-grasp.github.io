@@ -601,7 +601,9 @@
     }
 
     .viewer-embed,
-    .result-video {
+    .result-video,
+    .analysis-video,
+    .demo-video {
       width: 100%;
       min-height: 300px;
       display: block;
@@ -609,10 +611,11 @@
       border-radius: 18px;
       background: #ffffff;
       box-shadow: inset 0 0 0 1px rgba(36, 32, 52, 0.08);
+      object-fit: contain;
     }
 
-    .result-video {
-      object-fit: cover;
+    .demo-video {
+      min-height: 360px;
     }
 
 
@@ -1050,7 +1053,10 @@
         font-size: 16px;
       }
 
-      .interactive-placeholder {
+      .interactive-placeholder,
+      .result-video,
+      .analysis-video,
+      .demo-video {
         min-height: 220px;
       }
 
@@ -1198,9 +1204,9 @@
       <section class="section introduction-section" id="introduction">
         <article class="subsection" id="introduction-video" data-group="introduction">
           <h3 class="subsection-title">MIND-Grasp Video Demo</h3>
-          <div class="image-slot video-image-slot">
-            <img src="assets/video_demo.png" alt="MIND-Grasp video demo preview" />
-          </div>
+          <video class="demo-video" controls playsinline muted loop preload="metadata" src="assets/video_demo.mp4" title="MIND-Grasp video demo">
+            Your browser does not support the video tag.
+          </video>
         </article>
       </section>
 
@@ -1252,64 +1258,52 @@
               <div class="result-stage-card" data-stage="nbv">
                 <h4>Next-Best-View</h4>
                 <div class="scene-stage-content active" data-scene="scene-1">
-                  <div class="image-slot" id="scene1-nbv-viewer-slot">
-                    <img src="assets/results/scene1/nbv.png" alt="Scene 1 Next-Best-View result" />
-                  </div>
+                  <video class="result-video" controls playsinline muted loop preload="metadata" src="assets/results/scene1/nbv.mp4" title="Scene 1 Next-Best-View result">Your browser does not support the video tag.</video>
                   <!-- Scene 1 NBV example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene1/nbv_viewer.html" title="Scene 1 Next-Best-View 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="scene-stage-content" data-scene="scene-2">
-                  <div class="image-slot" id="scene2-nbv-viewer-slot">
-                    <img src="assets/results/scene2/nbv.png" alt="Scene 2 Next-Best-View result" />
-                  </div>
+                  <video class="result-video" controls playsinline muted loop preload="metadata" src="assets/results/scene2/nbv.mp4" title="Scene 2 Next-Best-View result">Your browser does not support the video tag.</video>
                   <!-- Scene 2 NBV example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene2/nbv_viewer.html" title="Scene 2 Next-Best-View 3D viewer"></iframe>
                   -->
                 </div>
-                <p class="stage-hint">Drag to rotate, scroll to zoom</p>
+                <p class="stage-hint">MP4 video demo</p>
               </div>
 
               <div class="result-stage-card is-retreat" data-stage="retreat">
                 <h4>Retreat Trajectory</h4>
                 <div class="scene-stage-content active" data-scene="scene-1">
-                  <div class="image-slot" id="scene1-retreat-viewer-slot">
-                    <img src="assets/results/scene1/retreat_trajectory.png" alt="Scene 1 retreat trajectory result" />
-                  </div>
+                  <video class="result-video" controls playsinline muted loop preload="metadata" src="assets/results/scene1/retreat_trajectory.mp4" title="Scene 1 retreat trajectory result">Your browser does not support the video tag.</video>
                   <!-- Scene 1 retreat example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene1/retreat_viewer.html" title="Scene 1 retreat trajectory 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="scene-stage-content" data-scene="scene-2">
-                  <div class="image-slot" id="scene2-retreat-viewer-slot">
-                    <img src="assets/results/scene2/retreat_trajectory.png" alt="Scene 2 retreat trajectory result" />
-                  </div>
+                  <video class="result-video" controls playsinline muted loop preload="metadata" src="assets/results/scene2/retreat_trajectory.mp4" title="Scene 2 retreat trajectory result">Your browser does not support the video tag.</video>
                   <!-- Scene 2 retreat example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene2/retreat_viewer.html" title="Scene 2 retreat trajectory 3D viewer"></iframe>
                   -->
                 </div>
-                <p class="stage-hint">Drag to rotate, scroll to zoom</p>
+                <p class="stage-hint">MP4 video demo</p>
               </div>
 
               <div class="result-stage-card" data-stage="video">
                 <h4>Grasp Execution</h4>
                 <div class="scene-stage-content active" data-scene="scene-1">
-                  <div class="image-slot result-video-preview" id="scene1-video-viewer-slot">
-                    <img src="assets/results/scene1/grasp_execution.png" alt="Scene 1 grasp execution preview" />
-                  </div>
+                  <video class="result-video" controls playsinline muted loop preload="metadata" src="assets/results/scene1/grasp_execution.mp4" title="Scene 1 grasp execution">Your browser does not support the video tag.</video>
                   <!-- Scene 1 video example replacement:
                   <video class="result-video" controls playsinline muted src="assets/results/scene1/grasp_execution.mp4"></video>
                   -->
                 </div>
                 <div class="scene-stage-content" data-scene="scene-2">
-                  <div class="image-slot result-video-preview" id="scene2-video-viewer-slot">
-                    <img src="assets/results/scene2/grasp_execution.png" alt="Scene 2 grasp execution preview" />
-                  </div>
+                  <video class="result-video" controls playsinline muted loop preload="metadata" src="assets/results/scene2/grasp_execution.mp4" title="Scene 2 grasp execution">Your browser does not support the video tag.</video>
                   <!-- Scene 2 video example replacement:
                   <video class="result-video" controls playsinline muted src="assets/results/scene2/grasp_execution.mp4"></video>
                   -->
                 </div>
-                <p class="stage-hint">HTML5 video, iframe, or embedded demo</p>
+                <p class="stage-hint">MP4 video demo</p>
               </div>
             </div>
           </div>
@@ -1369,41 +1363,31 @@
                 <div class="analysis-stage-card">
                   <h4>Single-View Reconstruction</h4>
                 <div class="analysis-stage-content active" data-analysis-group="reconstruction" data-case="case-1">
-                  <div class="image-slot" id="reconstruction-case1-single_view-slot">
-                    <img src="assets/analysis/case1/single_view.png" alt="Case1 single-view reconstruction" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case1/single_view.mp4" title="Case 1 single-view reconstruction">Your browser does not support the video tag.</video>
                   <!-- Case 1 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/single_view_viewer.html" title="Case 1 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-2">
-                  <div class="image-slot" id="reconstruction-case2-single_view-slot">
-                    <img src="assets/analysis/case2/single_view.png" alt="Case2 single-view reconstruction" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case2/single_view.mp4" title="Case 2 single-view reconstruction">Your browser does not support the video tag.</video>
                   <!-- Case 2 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/single_view_viewer.html" title="Case 2 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-3">
-                  <div class="image-slot" id="reconstruction-case3-single_view-slot">
-                    <img src="assets/analysis/case3/single_view.png" alt="Case3 single-view reconstruction" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case3/single_view.mp4" title="Case 3 single-view reconstruction">Your browser does not support the video tag.</video>
                   <!-- Case 3 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/single_view_viewer.html" title="Case 3 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-4">
-                  <div class="image-slot" id="reconstruction-case4-single_view-slot">
-                    <img src="assets/analysis/case4/single_view.png" alt="Case4 single-view reconstruction" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case4/single_view.mp4" title="Case 4 single-view reconstruction">Your browser does not support the video tag.</video>
                   <!-- Case 4 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/single_view_viewer.html" title="Case 4 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-5">
-                  <div class="image-slot" id="reconstruction-case5-single_view-slot">
-                    <img src="assets/analysis/case5/single_view.png" alt="Case5 single-view reconstruction" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case5/single_view.mp4" title="Case 5 single-view reconstruction">Your browser does not support the video tag.</video>
                   <!-- Case 5 Single-View Reconstruction 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/single_view_viewer.html" title="Case 5 Single-View Reconstruction 3D Viewer 3D viewer"></iframe>
                   -->
@@ -1413,41 +1397,31 @@
                 <div class="analysis-stage-card">
                   <h4>Multi-View Refinement</h4>
                 <div class="analysis-stage-content active" data-analysis-group="reconstruction" data-case="case-1">
-                  <div class="image-slot" id="reconstruction-case1-multi_view-slot">
-                    <img src="assets/analysis/case1/multi_view_refinement.png" alt="Case1 multi-view refinement" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case1/multi_view_refinement.mp4" title="Case 1 multi-view refinement">Your browser does not support the video tag.</video>
                   <!-- Case 1 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/multi_view_viewer.html" title="Case 1 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-2">
-                  <div class="image-slot" id="reconstruction-case2-multi_view-slot">
-                    <img src="assets/analysis/case2/multi_view_refinement.png" alt="Case2 multi-view refinement" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case2/multi_view_refinement.mp4" title="Case 2 multi-view refinement">Your browser does not support the video tag.</video>
                   <!-- Case 2 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/multi_view_viewer.html" title="Case 2 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-3">
-                  <div class="image-slot" id="reconstruction-case3-multi_view-slot">
-                    <img src="assets/analysis/case3/multi_view_refinement.png" alt="Case3 multi-view refinement" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case3/multi_view_refinement.mp4" title="Case 3 multi-view refinement">Your browser does not support the video tag.</video>
                   <!-- Case 3 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/multi_view_viewer.html" title="Case 3 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-4">
-                  <div class="image-slot" id="reconstruction-case4-multi_view-slot">
-                    <img src="assets/analysis/case4/multi_view_refinement.png" alt="Case4 multi-view refinement" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case4/multi_view_refinement.mp4" title="Case 4 multi-view refinement">Your browser does not support the video tag.</video>
                   <!-- Case 4 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/multi_view_viewer.html" title="Case 4 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="reconstruction" data-case="case-5">
-                  <div class="image-slot" id="reconstruction-case5-multi_view-slot">
-                    <img src="assets/analysis/case5/multi_view_refinement.png" alt="Case5 multi-view refinement" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case5/multi_view_refinement.mp4" title="Case 5 multi-view refinement">Your browser does not support the video tag.</video>
                   <!-- Case 5 Multi-View Refinement 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/multi_view_viewer.html" title="Case 5 Multi-View Refinement 3D Viewer 3D viewer"></iframe>
                   -->
@@ -1495,41 +1469,31 @@
                 <div class="analysis-stage-card">
                   <h4>NGF</h4>
                 <div class="analysis-stage-content active" data-analysis-group="nbv" data-case="case-1">
-                  <div class="image-slot" id="nbv-case1-ngf-slot">
-                    <img src="assets/analysis/case1/ngf_trajectory.png" alt="Case1 NGF trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case1/ngf_trajectory.mp4" title="Case 1 NGF trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 1 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/ngf_viewer.html" title="Case 1 NGF Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-2">
-                  <div class="image-slot" id="nbv-case2-ngf-slot">
-                    <img src="assets/analysis/case2/ngf_trajectory.png" alt="Case2 NGF trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case2/ngf_trajectory.mp4" title="Case 2 NGF trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 2 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/ngf_viewer.html" title="Case 2 NGF Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-3">
-                  <div class="image-slot" id="nbv-case3-ngf-slot">
-                    <img src="assets/analysis/case3/ngf_trajectory.png" alt="Case3 NGF trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case3/ngf_trajectory.mp4" title="Case 3 NGF trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 3 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/ngf_viewer.html" title="Case 3 NGF Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-4">
-                  <div class="image-slot" id="nbv-case4-ngf-slot">
-                    <img src="assets/analysis/case4/ngf_trajectory.png" alt="Case4 NGF trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case4/ngf_trajectory.mp4" title="Case 4 NGF trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 4 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/ngf_viewer.html" title="Case 4 NGF Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-5">
-                  <div class="image-slot" id="nbv-case5-ngf-slot">
-                    <img src="assets/analysis/case5/ngf_trajectory.png" alt="Case5 NGF trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case5/ngf_trajectory.mp4" title="Case 5 NGF trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 5 NGF Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/ngf_viewer.html" title="Case 5 NGF Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
@@ -1539,41 +1503,31 @@
                 <div class="analysis-stage-card">
                   <h4>VISO-Grasp</h4>
                 <div class="analysis-stage-content active" data-analysis-group="nbv" data-case="case-1">
-                  <div class="image-slot" id="nbv-case1-viso-slot">
-                    <img src="assets/analysis/case1/viso_grasp_trajectory.png" alt="Case1 VISO-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case1/viso_grasp_trajectory.mp4" title="Case 1 VISO-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 1 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/viso_viewer.html" title="Case 1 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-2">
-                  <div class="image-slot" id="nbv-case2-viso-slot">
-                    <img src="assets/analysis/case2/viso_grasp_trajectory.png" alt="Case2 VISO-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case2/viso_grasp_trajectory.mp4" title="Case 2 VISO-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 2 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/viso_viewer.html" title="Case 2 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-3">
-                  <div class="image-slot" id="nbv-case3-viso-slot">
-                    <img src="assets/analysis/case3/viso_grasp_trajectory.png" alt="Case3 VISO-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case3/viso_grasp_trajectory.mp4" title="Case 3 VISO-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 3 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/viso_viewer.html" title="Case 3 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-4">
-                  <div class="image-slot" id="nbv-case4-viso-slot">
-                    <img src="assets/analysis/case4/viso_grasp_trajectory.png" alt="Case4 VISO-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case4/viso_grasp_trajectory.mp4" title="Case 4 VISO-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 4 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/viso_viewer.html" title="Case 4 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-5">
-                  <div class="image-slot" id="nbv-case5-viso-slot">
-                    <img src="assets/analysis/case5/viso_grasp_trajectory.png" alt="Case5 VISO-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case5/viso_grasp_trajectory.mp4" title="Case 5 VISO-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 5 VISO-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/viso_viewer.html" title="Case 5 VISO-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
@@ -1583,41 +1537,31 @@
                 <div class="analysis-stage-card">
                   <h4>MIND-Grasp</h4>
                 <div class="analysis-stage-content active" data-analysis-group="nbv" data-case="case-1">
-                  <div class="image-slot" id="nbv-case1-mind_grasp-slot">
-                    <img src="assets/analysis/case1/mind_grasp_trajectory.png" alt="Case1 MIND-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case1/mind_grasp_trajectory.mp4" title="Case 1 MIND-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 1 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case1/mind_grasp_viewer.html" title="Case 1 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-2">
-                  <div class="image-slot" id="nbv-case2-mind_grasp-slot">
-                    <img src="assets/analysis/case2/mind_grasp_trajectory.png" alt="Case2 MIND-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case2/mind_grasp_trajectory.mp4" title="Case 2 MIND-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 2 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case2/mind_grasp_viewer.html" title="Case 2 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-3">
-                  <div class="image-slot" id="nbv-case3-mind_grasp-slot">
-                    <img src="assets/analysis/case3/mind_grasp_trajectory.png" alt="Case3 MIND-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case3/mind_grasp_trajectory.mp4" title="Case 3 MIND-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 3 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case3/mind_grasp_viewer.html" title="Case 3 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-4">
-                  <div class="image-slot" id="nbv-case4-mind_grasp-slot">
-                    <img src="assets/analysis/case4/mind_grasp_trajectory.png" alt="Case4 MIND-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case4/mind_grasp_trajectory.mp4" title="Case 4 MIND-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 4 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case4/mind_grasp_viewer.html" title="Case 4 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
                 </div>
                 <div class="analysis-stage-content" data-analysis-group="nbv" data-case="case-5">
-                  <div class="image-slot" id="nbv-case5-mind_grasp-slot">
-                    <img src="assets/analysis/case5/mind_grasp_trajectory.png" alt="Case5 MIND-Grasp trajectory" />
-                  </div>
+                  <video class="analysis-video" controls playsinline muted loop preload="metadata" src="assets/analysis/case5/mind_grasp_trajectory.mp4" title="Case 5 MIND-Grasp trajectory">Your browser does not support the video tag.</video>
                   <!-- Case 5 MIND-Grasp Trajectory 3D Viewer example replacement:
                   <iframe class="analysis-viewer-embed" src="assets/analysis/case5/mind_grasp_viewer.html" title="Case 5 MIND-Grasp Trajectory 3D Viewer 3D viewer"></iframe>
                   -->
