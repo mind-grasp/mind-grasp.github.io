@@ -822,7 +822,7 @@
 
     .failure-slider-wrap {
       margin: 14px auto 18px;
-      padding: 18px;
+      padding: 10px;
       border-radius: 22px;
       background: rgba(255, 255, 255, 0.54);
       border: 1px solid rgba(106, 53, 216, 0.10);
@@ -833,13 +833,13 @@
     .failure-slider {
       display: grid;
       grid-auto-flow: column;
-      grid-auto-columns: calc((100% - 32px) / 3);
-      gap: 16px;
+      grid-auto-columns: calc((100% - 20px) / 3);
+      gap: 10px;
       overflow-x: auto;
       overscroll-behavior-x: contain;
       scroll-snap-type: x mandatory;
       scroll-padding: 0;
-      padding: 2px 2px 14px;
+      padding: 0 0 14px;
       scrollbar-color: rgba(106, 53, 216, 0.52) rgba(106, 53, 216, 0.10);
       scrollbar-width: thin;
     }
@@ -860,16 +860,22 @@
 
     .failure-case-card {
       position: relative;
+      margin: 0;
+      min-height: 292px;
       border-radius: 18px;
       overflow: hidden;
       background: #ffffff;
       box-shadow: 0 12px 30px rgba(28, 23, 47, 0.08);
       scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .failure-case-card img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      min-height: 292px;
       display: block;
       object-fit: contain;
       background: #f7f7fb;
@@ -1049,18 +1055,22 @@
 
 
       .failure-slider-wrap {
-        padding: 14px;
+        padding: 8px;
       }
 
       .failure-slider {
-        grid-auto-columns: calc((100% - 24px) / 3);
-        gap: 12px;
-        min-width: 740px;
+        grid-auto-columns: calc((100% - 18px) / 3);
+        gap: 9px;
+        min-width: 820px;
+      }
+
+      .failure-case-card {
+        min-height: 250px;
       }
 
       .failure-case-card img {
-        height: auto;
-        min-height: 0;
+        height: 100%;
+        min-height: 250px;
         object-fit: contain;
       }
 
