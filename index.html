@@ -806,6 +806,100 @@
       box-shadow: var(--soft-shadow);
     }
 
+
+
+    .future-subsection {
+      scroll-margin-top: 42px;
+      margin-top: 22px;
+    }
+
+    .future-subtitle {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.26;
+      letter-spacing: -0.45px;
+    }
+
+    .failure-slider-wrap {
+      margin: 14px auto 18px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.54);
+      border: 1px solid rgba(106, 53, 216, 0.10);
+      box-shadow: 0 14px 38px rgba(68, 57, 102, 0.08);
+      overflow: hidden;
+    }
+
+    .failure-slider {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 32px) / 3);
+      gap: 16px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 0;
+      padding: 2px 2px 14px;
+      scrollbar-color: rgba(106, 53, 216, 0.52) rgba(106, 53, 216, 0.10);
+      scrollbar-width: thin;
+    }
+
+    .failure-slider::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .failure-slider::-webkit-scrollbar-track {
+      border-radius: 999px;
+      background: rgba(106, 53, 216, 0.10);
+    }
+
+    .failure-slider::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(106, 53, 216, 0.54);
+    }
+
+    .failure-case-card {
+      position: relative;
+      min-height: 260px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(28, 23, 47, 0.08);
+      scroll-snap-align: start;
+    }
+
+    .failure-case-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      display: block;
+      object-fit: cover;
+      background: #f7f7fb;
+    }
+
+    .failure-case-label {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      min-width: 38px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(36, 32, 52, 0.76);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .failure-slider-hint {
+      margin: 4px 0 0;
+      color: #77727f;
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+      font-style: italic;
+    }
+
     .footer-note {
       margin-top: 56px;
       padding-top: 26px;
@@ -955,6 +1049,22 @@
         min-height: 220px;
       }
 
+
+      .failure-slider-wrap {
+        padding: 14px;
+      }
+
+      .failure-slider {
+        grid-auto-columns: calc((100% - 24px) / 3);
+        gap: 12px;
+        min-width: 740px;
+      }
+
+      .failure-case-card,
+      .failure-case-card img {
+        min-height: 220px;
+      }
+
       .image-slot,
       .image-slot img {
         min-height: 220px;
@@ -1032,9 +1142,11 @@
       </div>
 
       <div class="nav-group">
-        <a class="nav-main" href="#future-work" data-group="future">
+        <a class="nav-main" href="#future-failure" data-group="future">
           <span class="nav-dot"></span><span>Future Work</span>
         </a>
+        <a class="nav-sub" href="#future-failure" data-group="future" data-target="future-failure">Failure Cases</a>
+        <a class="nav-sub" href="#future-limitations" data-group="future" data-target="future-limitations">Limitations and Extensions</a>
       </div>
     </nav>
 
@@ -1202,7 +1314,7 @@
 
         <article class="subsection" id="results-full" data-group="results">
           <h3 class="subsection-title">Full-Occlusion Discovery</h3>
-          <img class="figure-img" src="assets/results/full_occluded.png" alt="Full-occlusion discovery" />
+          <img class="figure-img" src="assets/full_occluded.png" alt="Full-occlusion discovery" />
           <div class="caption-card">
             <h3>From Hidden Target to Executable Grasp</h3>
             <p>
@@ -1542,15 +1654,48 @@
 
       <section class="section" id="future-work" data-group="future">
         <h2 class="section-title">Future Work</h2>
-        <div class="image-slot future-image-slot">
-          <img src="assets/future_work.png" alt="Future work overview" />
-        </div>
-        <div class="future-card">
-          <h3>Limitations and Extensions</h3>
-          <p>
-            MIND-Grasp may be misled when multiple hidden regions are plausible, and its retreat analysis depends on the quality of amodal 3D hypotheses. Future work will maintain uncertainty-aware multi-hypothesis beliefs, improve closed-loop RGB-D correction, and extend parallel-gripper grasp-remove to richer primitives such as pushing, dragging, opening, and dexterous-hand manipulation.
-          </p>
-        </div>
+
+        <article class="future-subsection" id="future-failure" data-group="future">
+          <h3 class="future-subtitle">MIND-Grasp Failure Cases</h3>
+          <div class="failure-slider-wrap">
+            <div class="failure-slider" aria-label="MIND-Grasp failure case slider">
+              <figure class="failure-case-card">
+                <img src="assets/future/failure_case1.png" alt="MIND-Grasp failure case 1" />
+                <figcaption class="failure-case-label">(a)</figcaption>
+              </figure>
+              <figure class="failure-case-card">
+                <img src="assets/future/failure_case2.png" alt="MIND-Grasp failure case 2" />
+                <figcaption class="failure-case-label">(b)</figcaption>
+              </figure>
+              <figure class="failure-case-card">
+                <img src="assets/future/failure_case3.png" alt="MIND-Grasp failure case 3" />
+                <figcaption class="failure-case-label">(c)</figcaption>
+              </figure>
+              <figure class="failure-case-card">
+                <img src="assets/future/failure_case4.png" alt="MIND-Grasp failure case 4" />
+                <figcaption class="failure-case-label">(d)</figcaption>
+              </figure>
+              <figure class="failure-case-card">
+                <img src="assets/future/failure_case5.png" alt="MIND-Grasp failure case 5" />
+                <figcaption class="failure-case-label">(e)</figcaption>
+              </figure>
+              <figure class="failure-case-card">
+                <img src="assets/future/failure_case6.png" alt="MIND-Grasp failure case 6" />
+                <figcaption class="failure-case-label">(f)</figcaption>
+              </figure>
+            </div>
+            <p class="failure-slider-hint">Slide horizontally to view all six failure cases.</p>
+          </div>
+        </article>
+
+        <article class="future-subsection" id="future-limitations" data-group="future">
+          <div class="future-card">
+            <h3>Limitations and Extensions</h3>
+            <p>
+              MIND-Grasp may be misled when multiple hidden regions are plausible, and its retreat analysis depends on the quality of amodal 3D hypotheses. Future work will maintain uncertainty-aware multi-hypothesis beliefs, improve closed-loop RGB-D correction, and extend parallel-gripper grasp-remove to richer primitives such as pushing, dragging, opening, and dexterous-hand manipulation.
+            </p>
+          </div>
+        </article>
       </section>
 
       <div class="footer-note">
@@ -1622,7 +1767,8 @@
       "analysis-nbv",
       "analysis-retraction",
       "analysis-discovery",
-      "future-work"
+      "future-failure",
+      "future-limitations"
     ];
 
     const navMainItems = document.querySelectorAll(".nav-main");
