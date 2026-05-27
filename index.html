@@ -190,22 +190,6 @@
       display: block;
     }
 
-    .interactive-viewer {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.interactive-viewer iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-
     .title {
       margin: 0;
       font-size: clamp(52px, 6vw, 82px);
@@ -1269,13 +1253,7 @@
                 <h4>Next-Best-View</h4>
                 <div class="scene-stage-content active" data-scene="scene-1">
                   <div class="image-slot" id="scene1-nbv-viewer-slot">
-                    <div class="interactive-viewer">
-  <iframe 
-    src="results/scene1/nbv.html"
-    title="NBV dynamic 3D visualization"
-    loading="lazy">
-  </iframe>
-</div>
+                    <img src="assets/results/scene1/nbv.png" alt="Scene 1 Next-Best-View result" />
                   </div>
                   <!-- Scene 1 NBV example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene1/nbv_viewer.html" title="Scene 1 Next-Best-View 3D viewer"></iframe>
@@ -1283,13 +1261,7 @@
                 </div>
                 <div class="scene-stage-content" data-scene="scene-2">
                   <div class="image-slot" id="scene2-nbv-viewer-slot">
-                    <div class="interactive-viewer">
-  <iframe 
-    src="results/scene2/nbv.html"
-    title="NBV dynamic 3D visualization"
-    loading="lazy">
-  </iframe>
-</div>
+                    <img src="assets/results/scene2/nbv.png" alt="Scene 2 Next-Best-View result" />
                   </div>
                   <!-- Scene 2 NBV example replacement:
                   <iframe class="viewer-embed" src="assets/results/scene2/nbv_viewer.html" title="Scene 2 Next-Best-View 3D viewer"></iframe>
