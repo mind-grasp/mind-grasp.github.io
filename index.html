@@ -807,6 +807,90 @@
     }
 
 
+    .real-world-demo-wrap {
+      margin: 14px auto 16px;
+      padding: 12px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.54);
+      border: 1px solid rgba(106, 53, 216, 0.10);
+      box-shadow: 0 14px 38px rgba(68, 57, 102, 0.08);
+      overflow: hidden;
+    }
+
+    .real-world-demo-slider {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 36px) / 4);
+      gap: 12px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 0;
+      padding: 0 0 14px;
+      scrollbar-color: rgba(106, 53, 216, 0.52) rgba(106, 53, 216, 0.10);
+      scrollbar-width: thin;
+    }
+
+    .real-world-demo-slider::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .real-world-demo-slider::-webkit-scrollbar-track {
+      border-radius: 999px;
+      background: rgba(106, 53, 216, 0.10);
+    }
+
+    .real-world-demo-slider::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(106, 53, 216, 0.54);
+    }
+
+    .real-world-demo-card {
+      position: relative;
+      margin: 0;
+      min-width: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(28, 23, 47, 0.08);
+      scroll-snap-align: start;
+    }
+
+    .real-world-demo-card video {
+      width: 100%;
+      aspect-ratio: 1600 / 1300;
+      height: auto;
+      display: block;
+      border: 0;
+      border-radius: 18px;
+      background: #ffffff;
+      object-fit: contain;
+    }
+
+    .real-world-demo-label {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      min-width: 28px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(36, 32, 52, 0.76);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1px;
+    }
+
+    .real-world-slider-hint {
+      margin: 4px 0 0;
+      color: #77727f;
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+      font-style: italic;
+    }
+
+
 
     .future-subsection {
       scroll-margin-top: 42px;
@@ -1065,6 +1149,12 @@
         min-width: 820px;
       }
 
+      .real-world-demo-slider {
+        grid-auto-columns: calc((100% - 36px) / 4);
+        gap: 12px;
+        min-width: 980px;
+      }
+
       .failure-case-card {
         min-height: 250px;
       }
@@ -1139,6 +1229,7 @@
         </a>
         <a class="nav-sub" href="#results-visual" data-group="results" data-target="results-visual">Visualization of MIND-Grasp</a>
         <a class="nav-sub" href="#results-full" data-group="results" data-target="results-full">Full-Occlusion Discovery</a>
+        <a class="nav-sub" href="#results-real-world" data-group="results" data-target="results-real-world">Real-World Demo</a>
       </div>
 
       <div class="nav-group">
@@ -1263,6 +1354,7 @@
                   <iframe class="viewer-embed" src="assets/results/scene2/nbv_viewer.html" title="Scene 2 Next-Best-View 3D viewer"></iframe>
                   -->
                 </div>
+                <p class="stage-hint">Auto-looping MP4 demo</p>
               </div>
 
               <div class="result-stage-card is-retreat" data-stage="retreat">
@@ -1279,6 +1371,7 @@
                   <iframe class="viewer-embed" src="assets/results/scene2/retreat_viewer.html" title="Scene 2 retreat trajectory 3D viewer"></iframe>
                   -->
                 </div>
+                <p class="stage-hint">Auto-looping MP4 demo</p>
               </div>
 
               <div class="result-stage-card" data-stage="video">
@@ -1295,6 +1388,7 @@
                   <video class="result-video" playsinline muted src="assets/results/scene2/grasp_execution.mp4" preload="auto" autoplay loop webkit-playsinline defaultMuted></video>
                   -->
                 </div>
+                <p class="stage-hint">Auto-looping MP4 demo</p>
               </div>
             </div>
           </div>
@@ -1309,11 +1403,59 @@
 
         <article class="subsection" id="results-full" data-group="results">
           <h3 class="subsection-title">Full-Occlusion Discovery</h3>
-          <img class="figure-img" src="assets/results/full_occluded.png" alt="Full-occlusion discovery" />
+          <img class="figure-img" src="assets/full_occluded.png" alt="Full-occlusion discovery" />
           <div class="caption-card">
             <h3>From Hidden Target to Executable Grasp</h3>
             <p>
               For fully occluded targets, MIND-Grasp removes the occluder, updates the amodal 3D model through discovery, and finally grasps the exposed target.
+            </p>
+          </div>
+        </article>
+
+
+        <article class="subsection" id="results-real-world" data-group="results">
+          <h3 class="subsection-title">Real-World Demo</h3>
+          <div class="real-world-demo-wrap">
+            <div class="real-world-demo-slider" aria-label="Real-world robot demo video slider">
+              <figure class="real-world-demo-card">
+                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo1.mp4" title="Real-world demo 1" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                <figcaption class="real-world-demo-label">Demo 1</figcaption>
+              </figure>
+              <figure class="real-world-demo-card">
+                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo2.mp4" title="Real-world demo 2" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                <figcaption class="real-world-demo-label">Demo 2</figcaption>
+              </figure>
+              <figure class="real-world-demo-card">
+                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo3.mp4" title="Real-world demo 3" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                <figcaption class="real-world-demo-label">Demo 3</figcaption>
+              </figure>
+              <figure class="real-world-demo-card">
+                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo4.mp4" title="Real-world demo 4" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                <figcaption class="real-world-demo-label">Demo 4</figcaption>
+              </figure>
+              <figure class="real-world-demo-card">
+                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo5.mp4" title="Real-world demo 5" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                <figcaption class="real-world-demo-label">Demo 5</figcaption>
+              </figure>
+              <figure class="real-world-demo-card">
+                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo6.mp4" title="Real-world demo 6" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                <figcaption class="real-world-demo-label">Demo 6</figcaption>
+              </figure>
+              <figure class="real-world-demo-card">
+                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo7.mp4" title="Real-world demo 7" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                <figcaption class="real-world-demo-label">Demo 7</figcaption>
+              </figure>
+              <figure class="real-world-demo-card">
+                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo8.mp4" title="Real-world demo 8" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                <figcaption class="real-world-demo-label">Demo 8</figcaption>
+              </figure>
+            </div>
+            <p class="real-world-slider-hint">Slide horizontally to view real-world demos.</p>
+          </div>
+          <div class="caption-card">
+            <h3>Real-Robot Occluded Grasping Demons</h3>
+            <p>
+              Real-world robot demons show MIND-Grasp performing occlusion-aware discovery, retraction-aware grasping, and target retrieval in cluttered tabletop scenes.
             </p>
           </div>
         </article>
