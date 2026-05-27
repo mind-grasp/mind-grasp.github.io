@@ -438,6 +438,183 @@
       gap: 30px;
     }
 
+    .results-interactive {
+      margin: 14px auto 16px;
+      padding: 18px 18px 20px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.54);
+      border: 1px solid rgba(106, 53, 216, 0.10);
+      box-shadow: 0 14px 38px rgba(68, 57, 102, 0.08);
+      overflow-x: auto;
+    }
+
+    .scene-selector {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin: 0 auto 22px;
+      flex-wrap: wrap;
+    }
+
+    .scene-tab {
+      position: relative;
+      width: 180px;
+      height: 112px;
+      padding: 0;
+      border: 2px solid transparent;
+      border-radius: 15px;
+      background: #ffffff;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(28, 23, 47, 0.12);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .scene-tab:hover {
+      transform: translateY(-2px);
+      border-color: rgba(106, 53, 216, 0.45);
+      box-shadow: 0 14px 30px rgba(75, 44, 154, 0.18);
+    }
+
+    .scene-tab.active {
+      border-color: var(--purple);
+      box-shadow:
+        0 0 0 5px rgba(106, 53, 216, 0.13),
+        0 16px 36px rgba(75, 44, 154, 0.22);
+    }
+
+    .scene-tab img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      background: #f6f5fa;
+    }
+
+    .scene-tab span {
+      position: absolute;
+      right: 8px;
+      bottom: 7px;
+      min-width: 34px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      color: #ffffff;
+      background: rgba(36, 32, 52, 0.78);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1px;
+    }
+
+    .results-stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(260px, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .result-stage-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(36, 32, 52, 0.08);
+      box-shadow: 0 12px 30px rgba(28, 23, 47, 0.08);
+    }
+
+    .result-stage-card h4 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: -0.25px;
+      color: #282832;
+    }
+
+    .interactive-placeholder {
+      min-height: 300px;
+      border: 1.5px dashed rgba(106, 53, 216, 0.30);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(106, 53, 216, 0.06), rgba(255, 255, 255, 0.82)),
+        repeating-linear-gradient(45deg, rgba(106, 53, 216, 0.022), rgba(106, 53, 216, 0.022) 10px, transparent 10px, transparent 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+      color: #8a7aaa;
+    }
+
+    .interactive-placeholder strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--purple-dark);
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .interactive-placeholder span {
+      display: block;
+      max-width: 210px;
+      margin: 0 auto;
+      font-size: 13.5px;
+      line-height: 1.48;
+    }
+
+    .video-slot {
+      background:
+        linear-gradient(135deg, rgba(28, 23, 47, 0.06), rgba(255, 255, 255, 0.82)),
+        repeating-linear-gradient(45deg, rgba(28, 23, 47, 0.025), rgba(28, 23, 47, 0.025) 10px, transparent 10px, transparent 20px);
+    }
+
+    .stage-hint {
+      margin: 10px 0 0;
+      color: #77727f;
+      font-size: 13px;
+      line-height: 1.4;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .scene-stage-content {
+      display: none;
+      width: 100%;
+    }
+
+    .scene-stage-content.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .scene-stage-content .interactive-placeholder {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .result-stage-card.is-retreat h4 {
+      text-align: center;
+    }
+
+    .result-stage-card.is-retreat .interactive-placeholder {
+      justify-content: center;
+      align-items: center;
+    }
+
+    .viewer-embed,
+    .result-video {
+      width: 100%;
+      min-height: 300px;
+      display: block;
+      border: 0;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: inset 0 0 0 1px rgba(36, 32, 52, 0.08);
+    }
+
+    .result-video {
+      object-fit: cover;
+    }
+
     .footer-note {
       margin-top: 56px;
       padding-top: 26px;
@@ -456,6 +633,19 @@
         width: min(1040px, calc(100% - 32px));
         margin-top: 32px;
         padding: 54px 34px 58px;
+      }
+
+      .results-stage-grid {
+        grid-template-columns: repeat(3, minmax(240px, 1fr));
+        gap: 14px;
+      }
+
+      .result-stage-card {
+        padding: 14px;
+      }
+
+      .interactive-placeholder {
+        min-height: 280px;
       }
     }
 
@@ -523,6 +713,33 @@
 
       .placeholder,
       .video-placeholder {
+        min-height: 220px;
+      }
+
+      .results-interactive {
+        padding: 14px;
+      }
+
+      .scene-tab {
+        width: 142px;
+        height: 90px;
+      }
+
+      .results-stage-grid {
+        grid-template-columns: repeat(3, minmax(230px, 1fr));
+        gap: 12px;
+        min-width: 740px;
+      }
+
+      .result-stage-card {
+        padding: 12px;
+      }
+
+      .result-stage-card h4 {
+        font-size: 16px;
+      }
+
+      .interactive-placeholder {
         min-height: 220px;
       }
     }
@@ -648,7 +865,103 @@
 
         <article class="subsection" id="results-visual" data-group="results">
           <h3 class="subsection-title">Visualization of MIND-Grasp</h3>
-          <img class="figure-img" src="assets/robot-visual.png" alt="Visualization of MIND-Grasp" />
+
+          <div class="results-interactive">
+            <div class="scene-selector" aria-label="Select an initial-view scene">
+              <button class="scene-tab active" type="button" data-scene="scene-1">
+                <img src="assets/results_scene1_initial.png" alt="Initial view of scene 1" />
+                <span>Scene 1</span>
+              </button>
+              <button class="scene-tab" type="button" data-scene="scene-2">
+                <img src="assets/results_scene2_initial.png" alt="Initial view of scene 2" />
+                <span>Scene 2</span>
+              </button>
+            </div>
+
+            <div class="results-stage-grid">
+              <div class="result-stage-card" data-stage="nbv">
+                <h4>Next-Best-View</h4>
+                <div class="scene-stage-content active" data-scene="scene-1">
+                  <div class="interactive-placeholder" id="scene1-nbv-viewer-slot">
+                    <div>
+                      <strong>Scene 1 NBV 3D Viewer</strong>
+                      <span>Insert the interactive Next-Best-View 3D viewer for Scene 1 here.</span>
+                    </div>
+                  </div>
+                  <!-- Scene 1 NBV example replacement:
+                  <iframe class="viewer-embed" src="assets/results/scene1/nbv_viewer.html" title="Scene 1 Next-Best-View 3D viewer"></iframe>
+                  -->
+                </div>
+                <div class="scene-stage-content" data-scene="scene-2">
+                  <div class="interactive-placeholder" id="scene2-nbv-viewer-slot">
+                    <div>
+                      <strong>Scene 2 NBV 3D Viewer</strong>
+                      <span>Insert the interactive Next-Best-View 3D viewer for Scene 2 here.</span>
+                    </div>
+                  </div>
+                  <!-- Scene 2 NBV example replacement:
+                  <iframe class="viewer-embed" src="assets/results/scene2/nbv_viewer.html" title="Scene 2 Next-Best-View 3D viewer"></iframe>
+                  -->
+                </div>
+                <p class="stage-hint">Drag to rotate, scroll to zoom</p>
+              </div>
+
+              <div class="result-stage-card is-retreat" data-stage="retreat">
+                <h4>Retreat Trajectory</h4>
+                <div class="scene-stage-content active" data-scene="scene-1">
+                  <div class="interactive-placeholder" id="scene1-retreat-viewer-slot">
+                    <div>
+                      <strong>Scene 1 Retreat Trajectory 3D Viewer</strong>
+                      <span>Insert the centered retreat-trajectory 3D viewer for Scene 1 here.</span>
+                    </div>
+                  </div>
+                  <!-- Scene 1 retreat example replacement:
+                  <iframe class="viewer-embed" src="assets/results/scene1/retreat_viewer.html" title="Scene 1 retreat trajectory 3D viewer"></iframe>
+                  -->
+                </div>
+                <div class="scene-stage-content" data-scene="scene-2">
+                  <div class="interactive-placeholder" id="scene2-retreat-viewer-slot">
+                    <div>
+                      <strong>Scene 2 Retreat Trajectory 3D Viewer</strong>
+                      <span>Insert the centered retreat-trajectory 3D viewer for Scene 2 here.</span>
+                    </div>
+                  </div>
+                  <!-- Scene 2 retreat example replacement:
+                  <iframe class="viewer-embed" src="assets/results/scene2/retreat_viewer.html" title="Scene 2 retreat trajectory 3D viewer"></iframe>
+                  -->
+                </div>
+                <p class="stage-hint">Drag to rotate, scroll to zoom</p>
+              </div>
+
+              <div class="result-stage-card" data-stage="video">
+                <h4>Grasp Execution</h4>
+                <div class="scene-stage-content active" data-scene="scene-1">
+                  <div class="interactive-placeholder video-slot" id="scene1-video-viewer-slot">
+                    <div>
+                      <strong>Scene 1 Real-Robot Video</strong>
+                      <span>Insert the physical experiment video for Scene 1 here.</span>
+                    </div>
+                  </div>
+                  <!-- Scene 1 video example replacement:
+                  <video class="result-video" controls playsinline muted src="assets/results/scene1/grasp_execution.mp4"></video>
+                  -->
+                </div>
+                <div class="scene-stage-content" data-scene="scene-2">
+                  <div class="interactive-placeholder video-slot" id="scene2-video-viewer-slot">
+                    <div>
+                      <strong>Scene 2 Real-Robot Video</strong>
+                      <span>Insert the physical experiment video for Scene 2 here.</span>
+                    </div>
+                  </div>
+                  <!-- Scene 2 video example replacement:
+                  <video class="result-video" controls playsinline muted src="assets/results/scene2/grasp_execution.mp4"></video>
+                  -->
+                </div>
+                <p class="stage-hint">HTML5 video, iframe, or embedded demo</p>
+              </div>
+            </div>
+          </div>
+
           <div class="caption-card">
             <h3>NBV Discovery and Retreat</h3>
             <p>
@@ -737,6 +1050,30 @@
   </div>
 
   <script>
+    const sceneTabs = document.querySelectorAll(".scene-tab");
+    const sceneStageContents = document.querySelectorAll(".scene-stage-content");
+
+    function activateResultScene(sceneId) {
+      sceneTabs.forEach(tab => {
+        const isActive = tab.dataset.scene === sceneId;
+        tab.classList.toggle("active", isActive);
+        tab.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      sceneStageContents.forEach(panel => {
+        panel.classList.toggle("active", panel.dataset.scene === sceneId);
+      });
+    }
+
+    sceneTabs.forEach(tab => {
+      tab.setAttribute("aria-pressed", tab.classList.contains("active") ? "true" : "false");
+      tab.addEventListener("click", () => {
+        activateResultScene(tab.dataset.scene);
+      });
+    });
+
+    activateResultScene("scene-1");
+
     const observedSections = [
       "introduction-overview",
       "introduction-video",
