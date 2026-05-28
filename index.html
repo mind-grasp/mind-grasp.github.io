@@ -615,6 +615,30 @@
       object-fit: contain;
     }
 
+    .grasp-execution-video-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .grasp-execution-speed-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(36, 32, 52, 0.78);
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 850;
+      line-height: 1;
+      letter-spacing: 0.1px;
+      backdrop-filter: blur(8px);
+      z-index: 2;
+    }
+
 
 
     .analysis-interactive {
@@ -846,7 +870,6 @@
     }
 
     .real-world-demo-card {
-      position: relative;
       margin: 0;
       min-width: 0;
       border-radius: 18px;
@@ -856,15 +879,38 @@
       scroll-snap-align: start;
     }
 
+    .real-world-video-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 18px 18px 0 0;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
     .real-world-demo-card video {
       width: 100%;
       aspect-ratio: 1600 / 1300;
       height: auto;
       display: block;
       border: 0;
-      border-radius: 18px;
+      border-radius: 18px 18px 0 0;
       background: #ffffff;
       object-fit: contain;
+    }
+
+    .real-world-speed-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(36, 32, 52, 0.78);
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 850;
+      line-height: 1;
+      letter-spacing: 0.1px;
+      backdrop-filter: blur(8px);
     }
 
     .real-world-demo-label {
@@ -879,6 +925,22 @@
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.1px;
+    }
+
+    .real-world-demo-instruction {
+      min-height: 52px;
+      margin: 0;
+      padding: 10px 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4c4858;
+      font-size: 12.5px;
+      line-height: 1.28;
+      text-align: center;
+      font-style: italic;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 248, 255, 0.88));
+      border-top: 1px solid rgba(106, 53, 216, 0.10);
     }
 
     .real-world-slider-hint {
@@ -1375,15 +1437,21 @@
               <div class="result-stage-card" data-stage="video">
                 <h4>Grasp Execution</h4>
                 <div class="scene-stage-content active" data-scene="scene-1">
-                  <video class="result-video" playsinline muted loop preload="auto" src="assets/results/scene1/grasp_execution.mp4" title="Scene 1 grasp execution" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                  <div class="grasp-execution-video-frame">
+                    <video class="result-video grasp-execution-video" playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/scene1/grasp_execution.mp4" title="Scene 1 grasp execution" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                    <span class="grasp-execution-speed-badge">Speed up x3</span>
+                  </div>
                   <!-- Scene 1 video example replacement:
-                  <video class="result-video" playsinline muted src="assets/results/scene1/grasp_execution.mp4" preload="auto" autoplay loop webkit-playsinline defaultMuted></video>
+                  <video class="result-video grasp-execution-video" playsinline muted src="assets/results/scene1/grasp_execution.mp4" preload="auto" data-playback-rate="3" autoplay loop webkit-playsinline defaultMuted></video>
                   -->
                 </div>
                 <div class="scene-stage-content" data-scene="scene-2">
-                  <video class="result-video" playsinline muted loop preload="auto" src="assets/results/scene2/grasp_execution.mp4" title="Scene 2 grasp execution" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                  <div class="grasp-execution-video-frame">
+                    <video class="result-video grasp-execution-video" playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/scene2/grasp_execution.mp4" title="Scene 2 grasp execution" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
+                    <span class="grasp-execution-speed-badge">Speed up x3</span>
+                  </div>
                   <!-- Scene 2 video example replacement:
-                  <video class="result-video" playsinline muted src="assets/results/scene2/grasp_execution.mp4" preload="auto" autoplay loop webkit-playsinline defaultMuted></video>
+                  <video class="result-video grasp-execution-video" playsinline muted src="assets/results/scene2/grasp_execution.mp4" preload="auto" data-playback-rate="3" autoplay loop webkit-playsinline defaultMuted></video>
                   -->
                 </div>
               </div>
@@ -1415,48 +1483,85 @@
           <div class="real-world-demo-wrap">
             <div class="real-world-demo-slider" aria-label="Real-world robot demo video slider">
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo1.mp4" title="Real-world demo 1" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 1</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo1.mp4" title="Real-world demo 1: Grasp the Starbucks bottle" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Grasp the Starbucks bottle”</figcaption>
               </figure>
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo2.mp4" title="Real-world demo 2" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 2</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo2.mp4" title="Real-world demo 2: Grasp the cat toy" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Grasp the cat toy”</figcaption>
               </figure>
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo3.mp4" title="Real-world demo 3" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 3</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo3.mp4" title="Real-world demo 3: Find the hidden colorful toy" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Find the hidden colorful toy”</figcaption>
               </figure>
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo4.mp4" title="Real-world demo 4" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 4</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo4.mp4" title="Real-world demo 4: Find the hidden medicine bottle" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Find the hidden medicine bottle”</figcaption>
               </figure>
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo5.mp4" title="Real-world demo 5" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 5</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo5.mp4" title="Real-world demo 5: Grasp the colorful toy" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Grasp the colorful toy”</figcaption>
               </figure>
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo6.mp4" title="Real-world demo 6" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 6</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo6.mp4" title="Real-world demo 6: Grasp the medicine bottle" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Grasp the medicine bottle”</figcaption>
               </figure>
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo7.mp4" title="Real-world demo 7" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 7</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo7.mp4" title="Real-world demo 7: Find the glue bottle" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Find the glue bottle”</figcaption>
               </figure>
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo8.mp4" title="Real-world demo 8" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 8</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo8.mp4" title="Real-world demo 8: Find the hidden black toy" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Find the hidden black toy”</figcaption>
               </figure>
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo9.mp4" title="Real-world demo 9" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 9</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo9.mp4" title="Real-world demo 9: Take out the glue bottle" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Take out the glue bottle”</figcaption>
               </figure>
               <figure class="real-world-demo-card">
-                <video playsinline muted loop preload="auto" src="assets/results/real_world_demos/demo10.mp4" title="Real-world demo 10" autoplay webkit-playsinline defaultMuted>Your browser does not support the video tag.</video>
-                <figcaption class="real-world-demo-label">Demo 10</figcaption>
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo10.mp4" title="Real-world demo 10: Get me the brush" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Get me the brush”</figcaption>
               </figure>
-              
+              <figure class="real-world-demo-card">
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo11.mp4" title="Real-world demo 11: Hand me the tennis ball" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Hand me the tennis ball”</figcaption>
+              </figure>
+              <figure class="real-world-demo-card">
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo12.mp4" title="Real-world demo 12: Find the red block" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Find the red block”</figcaption>
+              </figure>
+              <figure class="real-world-demo-card">
+                <div class="real-world-video-frame">
+                  <video playsinline muted loop preload="auto" data-playback-rate="3" src="assets/results/real_world_demos/demo13.mp4" title="Real-world demo 13: Get me the chewing gum" autoplay webkit-playsinline defaultMuted onloadedmetadata="this.playbackRate=3" onplay="this.playbackRate=3">Your browser does not support the video tag.</video>
+                </div>
+                <figcaption class="real-world-demo-instruction">“Get me the chewing gum”</figcaption>
+              </figure>
             </div>
-            <p class="real-world-slider-hint">Slide horizontally to view real-world demos.</p>
+            <p class="real-world-slider-hint">Slide horizontally to view real-world demos（Speed up x3）.</p>
           </div>
           <div class="caption-card">
             <h3>Real-Robot Occluded Grasping Demos</h3>
@@ -1815,6 +1920,11 @@
         video.setAttribute("playsinline", "");
         video.setAttribute("webkit-playsinline", "");
         video.preload = "auto";
+        const playbackRate = parseFloat(video.dataset.playbackRate || "1");
+        if (Number.isFinite(playbackRate) && playbackRate > 0) {
+          video.defaultPlaybackRate = playbackRate;
+          video.playbackRate = playbackRate;
+        }
         const playPromise = video.play();
         if (playPromise && typeof playPromise.catch === "function") {
           playPromise.catch(() => {
