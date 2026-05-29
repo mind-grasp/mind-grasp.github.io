@@ -602,8 +602,7 @@
 
     .viewer-embed,
     .result-video,
-    .analysis-video,
-    .demo-video {
+    .analysis-video {
       width: 100%;
       aspect-ratio: 1600 / 1300;
       height: auto;
@@ -612,6 +611,20 @@
       border-radius: 18px;
       background: #ffffff;
       box-shadow: inset 0 0 0 1px rgba(36, 32, 52, 0.08);
+      object-fit: contain;
+    }
+
+    .demo-video {
+      width: 100%;
+      max-width: 1920px;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      display: block;
+      margin: 14px auto;
+      border: 0;
+      border-radius: 18px;
+      background: #000000;
+      box-shadow: var(--soft-shadow);
       object-fit: contain;
     }
 
@@ -885,17 +898,20 @@
       border-radius: 18px 18px 0 0;
       overflow: hidden;
       background: #ffffff;
+      line-height: 0;
     }
 
     .real-world-demo-card video {
       width: 100%;
-      aspect-ratio: 1600 / 1300;
+      aspect-ratio: 16 / 9;
       height: auto;
       display: block;
+      margin: 0;
       border: 0;
       border-radius: 18px 18px 0 0;
       background: #ffffff;
       object-fit: contain;
+      vertical-align: top;
     }
 
     .real-world-speed-badge {
@@ -928,19 +944,19 @@
     }
 
     .real-world-demo-instruction {
-      min-height: 52px;
-      margin: 0;
-      padding: 10px 10px 12px;
+      min-height: 34px;
+      margin: -1px 0 0;
+      padding: 5px 8px 7px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #4c4858;
       font-size: 12.5px;
-      line-height: 1.28;
+      line-height: 1.16;
       text-align: center;
       font-style: italic;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 248, 255, 0.88));
-      border-top: 1px solid rgba(106, 53, 216, 0.10);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 248, 255, 0.90));
+      border-top: 1px solid rgba(106, 53, 216, 0.08);
     }
 
     .real-world-slider-hint {
@@ -1351,7 +1367,7 @@
       <section class="section introduction-section" id="introduction">
         <article class="subsection" id="introduction-video" data-group="introduction">
           <h3 class="subsection-title">Video</h3>
-          <video class="demo-video" playsinline muted loop preload="auto" src="assets/video.mp4" title="Video" autoplay webkit-playsinline defaultMuted>
+          <video class="demo-video" controls playsinline preload="metadata" src="assets/video.mp4" title="Video" data-manual-playback="true">
             Your browser does not support the video tag.
           </video>
         </article>
@@ -1906,7 +1922,7 @@
 
 
     function playAllPageVideos() {
-      const videos = document.querySelectorAll("video");
+      const videos = document.querySelectorAll("video:not([data-manual-playback='true'])");
       videos.forEach(video => {
         video.muted = true;
         video.defaultMuted = true;
